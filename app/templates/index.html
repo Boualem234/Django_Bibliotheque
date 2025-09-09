@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Démo Django{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<h2>Démo Django</h2>
+
+<p>Mon premier site Django</p>
+
+<p>
+  <img class="img-thumbnail" src="{% static 'img/bib_boua.png' %}" alt="Python Django">
+</p>
+
+{% endblock %}
