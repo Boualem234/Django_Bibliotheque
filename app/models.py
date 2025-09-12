@@ -33,7 +33,7 @@ class Author(models.Model):
     verbose_name_plural = "auteurs"
 
 class Book(models.Model):
-  code = models.CharField(max_length=15)
+  code = models.CharField(max_length=15, unique=True, verbose_name="Code du livre")
   title = models.CharField(max_length=50, verbose_name="Titre du livre")
   price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(1)], verbose_name="Prix du livre")
   summary = models.CharField(max_length=50, verbose_name="Résumé du livre",blank=True)

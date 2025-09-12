@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Démo Django{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<h2>Book List Header</h2>
+
+<p>Book List</p>
+
+<nav>
+  <a href="{% url 'add_book' %}">Add New Book</a>
+</nav>
+
+<ul>
+  {% for book in books %}
+    <li>{{ book.title }} by {{ book.author }} <a href="{% url 'book_details' book.id %}">Voir détails</a></li>
+  {% empty %}
+    <li>No books available.</li>
+  {% endfor %}
+</ul>   
+
+<img src="{% static 'img/bib_boua.png' %}" alt="Bibliothèque" />
+
+{% endblock %}

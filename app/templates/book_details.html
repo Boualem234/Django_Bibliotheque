@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Démo Django{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<h2>Book List Header</h2>
+
+<p>Book List</p>
+
+<P>{{book.code}}</P>
+<P>{{book.title}}</P>
+<P>{{book.author}}</P>
+<P>{{book.price}}</P>
+<P>{{book.date}}</P>
+<P>{{book.edition}}</P>
+<P>{{book.category}}</P>
+<P>{{book.summary}}</P>
+
+
+{% endblock %}
