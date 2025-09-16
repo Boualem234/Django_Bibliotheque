@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Démo Django{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<h2>Book List Header</h2>
+
+<p>Book List</p>
+
+{% if success_message %}
+    <p style="color: green;">{{ success_message }}</p>
+{% endif %}
+{% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+{% endif %}
+
+<nav>
+  <a href="{% url 'add_author' %}">Ajouter un auteur</a>
+</nav>
+
+<ul>
+  {% for author in authors %}
+    <li>{{ author.first_name }} {{ author.last_name }} <a href="{% url 'author_details' author.id %}">Voir détails</a>
+      <a href="{% url 'del_author' author.id %}">Suprimmer</a>
+      <a href="{% url 'edit_author' author.id %}">Modifier</a>
+    </li>
+  {% empty %}
+    <li>No authors available.</li>
+  {% endfor %}
+
+{% endblock %}

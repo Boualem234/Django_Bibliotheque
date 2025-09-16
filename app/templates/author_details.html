@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Démo Django{% endblock %}
+
+{% block content %}
+{% load static %}
+
+
+<h2>Author Details</h2>
+<p>Author Details</p>
+
+<P>{{author.first_name}}</P>
+<P>{{author.last_name}}</P>
+<P>{{author.birth_date}}</P>
+<P>{{author.nationality}}</P>
+
+
+{% endblock %}

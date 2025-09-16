@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Démo Django{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<h2>Book List Header</h2>
+
+<p>Ajouter un livre</p>
+
+{% if success_message %}
+    <p style="color: green;">{{ success_message }}</p>
+{% endif %}
+{% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <textarea name="first_name" placeholder="Prénom" required></textarea><br>
+    <textarea name="last_name" placeholder="Nom" required></textarea><br>
+    <input type="date" name="birth_date" placeholder="Date de naissance" required><br>
+    <textarea name="nationality" placeholder="Nationnalité" required></textarea><br>
+    <button type="submit">Ajouter l'auteur</button>
+</form>
+
+{% endblock %}

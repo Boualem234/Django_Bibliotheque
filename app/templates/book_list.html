@@ -8,13 +8,23 @@
 
 <p>Book List</p>
 
+{% if success_message %}
+    <p style="color: green;">{{ success_message }}</p>
+{% endif %}
+{% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+{% endif %}
+
 <nav>
-  <a href="{% url 'add_book' %}">Add New Book</a>
+  <a href="{% url 'add_book' %}">Ajouter un livre</a>
 </nav>
 
 <ul>
   {% for book in books %}
-    <li>{{ book.title }} by {{ book.author }} <a href="{% url 'book_details' book.id %}">Voir détails</a></li>
+    <li>{{ book.title }} écris par {{ book.author }} <a href="{% url 'book_details' book.id %}">Voir détails</a>
+      <a href="{% url 'del_book' book.id %}">Suprimmer</a>
+      <a href="{% url 'edit_book' book.id %}">Modifier</a>
+    </li>
   {% empty %}
     <li>No books available.</li>
   {% endfor %}

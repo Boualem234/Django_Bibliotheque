@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Démo Django{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<h2>Book List Header</h2>
+
+<p>Ajouter un livre</p>
+
+{% if success_message %}
+    <p style="color: green;">{{ success_message }}</p>
+{% endif %}
+{% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <textarea name="name" placeholder="Name" required></textarea><br>
+    <button type="submit">Add Category</button>
+</form>
+
+{% endblock %}

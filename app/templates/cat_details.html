@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Démo Django{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<h2>Category Details</h2>
+
+<p>Category Details</p>
+
+<P>{{category.name}}</P>
+<P>{{category.description}}</P>
+
+{% endblock %}

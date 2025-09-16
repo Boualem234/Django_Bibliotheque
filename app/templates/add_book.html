@@ -19,7 +19,7 @@
     {% csrf_token %}
     <textarea name="code" placeholder="Code" required></textarea><br>
     <textarea name="title" placeholder="Title" required></textarea><br>
-    <textarea name="price" placeholder="Price" required></textarea><br>
+    <input type="text" name="price" step="0.01" placeholder="Price" required></input>
     <input type="date" name="date" placeholder="Date de publication" required></input><br>
     <textarea name="edition" placeholder="Edition" required></textarea><br>
     <select name="category" aria-placeholder="category" required>

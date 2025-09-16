@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Démo Django{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<h2>Category List Header</h2>
+<p>Category List</p>
+
+{% if success_message %}
+    <p style="color: green;">{{ success_message }}</p>
+{% endif %}
+{% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+{% endif %}
+
+<nav>
+    <a href="{% url 'add_category' %}">Ajouter une catégorie</a>
+</nav>
+
+<ul>
+  {% for category in categories %}
+    <li>{{ category.name }} <a href="{% url 'cat_details' category.id %}">Voir détails</a>
+      <a href="{% url 'del_cat' category.id %}">Suprimmer</a>
+      <a href="{% url 'edit_cat' category.id %}">Modifier</a>
+    </li>
+  {% empty %}
+    <li>No categories available.</li>
+  {% endfor %}
+</ul>
+
+
+{% endblock %}
