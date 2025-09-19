@@ -8,7 +8,7 @@ def validate_not_future(value):
         raise ValidationError("La date ne peut pas être dans le futur.")
 
 class Category(models.Model):
-  name = models.CharField(max_length=50, verbose_name="Nom")
+  name = models.CharField(max_length=50,unique=True, verbose_name="Nom")
 
   def __str__(self):
     return self.name
@@ -36,7 +36,7 @@ class Book(models.Model):
   code = models.CharField(max_length=15, unique=True, verbose_name="Code du livre")
   title = models.CharField(max_length=50, verbose_name="Titre du livre")
   price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(1)], verbose_name="Prix du livre")
-  summary = models.CharField(max_length=50, verbose_name="Résumé du livre",blank=True)
+  summary = models.CharField(max_length=200, verbose_name="Résumé du livre",blank=True)
   date = models.DateField(verbose_name = "Date de publication",validators=[validate_not_future])
   edition = models.CharField(verbose_name = "Edition du livre")
   category = models.ForeignKey(Category, verbose_name="Catégorie", related_name='books', on_delete=models.CASCADE)

@@ -17,14 +17,44 @@ class AddBookView(View):
         authors = Author.objects.all()
         return render(request, 'add_book.html', {'categories': categories, 'authors': authors})
     def post(self, request):
-        code = request.POST.get('code')
-        title = request.POST.get('title')
-        price = request.POST.get('price')
-        summary = request.POST.get('summary')
-        date = request.POST.get('date')
-        edition = request.POST.get('edition')
+
+        errors = []
+        
+        code = request.POST.get('code').strip()
+        if not code:
+            errors.append("Le code est obligatoire.")
+
+        title = request.POST.get('title').strip()
+        if not title:
+            errors.append("Le titre est obligatoire.")
+
+        price = request.POST.get('price').strip()
+        if not price:
+            errors.append("Le prix est obligatoire.")
+
+        summary = request.POST.get('summary').strip()
+
+        date = request.POST.get('date').strip()
+        if not date:
+            errors.append("La date de publication est obligatoire.")
+
+        edition = request.POST.get('edition').strip()
+        if not edition:
+            errors.append("L'édition est obligatoire.")
+
         category_id = request.POST.get('category')
+        if not category_id:
+            errors.append("La catégorie est obligatoire.")
+
         author_id = request.POST.get('author')
+        if not author_id:   
+            errors.append("L'auteur est obligatoire.")
+
+
+        if errors:
+            categories = Category.objects.all()
+            authors = Author.objects.all()
+            return render(request, 'add_book.html', {'categories': categories, 'authors': authors, 'errors': errors})
 
         category = Category.objects.get(id=category_id)
         author = Author.objects.get(id=author_id)
@@ -39,13 +69,20 @@ class AddBookView(View):
             category=category,
             author=author
         )
-        book.save()
+
+        try:
+            book.save()
+        except Exception as e:
+            categories = Category.objects.all()
+            authors = Author.objects.all()
+            return render(request, 'add_book.html', {'categories': categories, 'authors': authors, 'error_message': str(e)})
+        
         return render(request, 'add_book.html', {'success_message': "Livre ajouté avec succès!"})
 
     
 class BookListView(View):
     def get(self, request):
-        books = Book.objects.all()  # Récupère tous les livres
+        books = Book.objects.all() 
         return render(request, 'book_list.html', {'books': books})
     
 class BookDetailsView(View):
@@ -72,12 +109,12 @@ class EditBookView(View):
         except Book.DoesNotExist:
             raise Http404("Livre non trouvé")
 
-        book.code = request.POST.get('code')
-        book.title = request.POST.get('title')
-        book.price = request.POST.get('price')
-        book.summary = request.POST.get('summary')
-        book.date = request.POST.get('date')
-        book.edition = request.POST.get('edition')
+        book.code = request.POST.get('code').strip()
+        book.title = request.POST.get('title').strip()
+        book.price = request.POST.get('price').strip()
+        book.summary = request.POST.get('summary').strip()
+        book.date = request.POST.get('date').strip()
+        book.edition = request.POST.get('edition').strip()
         
         category_id = request.POST.get('category')
         author_id = request.POST.get('author')
@@ -85,7 +122,13 @@ class EditBookView(View):
         book.category = Category.objects.get(id=category_id)
         book.author = Author.objects.get(id=author_id)
 
-        book.save()
+        try:
+            book.save()
+        except Exception as e:
+            categories = Category.objects.all()
+            authors = Author.objects.all()
+            return render(request, 'edit_book.html', {'book': book, 'categories': categories, 'authors': authors, 'error_message': str(e)})
+        
         return render(request, 'edit_book.html', {'book': book, 'success_message': "Livre mis à jour avec succès!"})
     
 class DelBookView(View):
@@ -100,7 +143,7 @@ class DelBookView(View):
         
 class CategoryListView(View):
     def get(self, request):
-        categories = Category.objects.all()  # Récupère toutes les catégories
+        categories = Category.objects.all() 
         return render(request, 'cat_list.html', {'categories': categories})
     
 class CategoryDetailsView(View):
@@ -116,12 +159,17 @@ class AddCategoryView(View):
         return render(request, 'add_category.html')
     
     def post(self, request):
-        name = request.POST.get('name')
+        name = request.POST.get('name').strip()
 
         category = Category(
             name=name,
         )
-        category.save()
+
+        try:
+            category.save()
+        except Exception as e:
+            return render(request, 'add_category.html', {'error_message': str(e)})
+        
         return render(request, 'add_category.html', {'success_message': "Catégorie ajoutée avec succès!"})
     
 class DelCategoryView(View):
@@ -148,14 +196,18 @@ class EditCategoryView(View):
         except Category.DoesNotExist:
             raise Http404("Catégorie non trouvée")
 
-        category.name = request.POST.get('name')
-        category.description = request.POST.get('description')
-        category.save()
+        category.name = request.POST.get('name').strip()
+
+        try:
+            category.save()
+        except Exception as e:
+            return render(request, 'edit_category.html', {'category': category, 'error_message': str(e)})
+    
         return render(request, 'edit_category.html', {'category': category, 'success_message': "Catégorie mise à jour avec succès!"})
     
 class AuthorListView(View):
     def get(self, request):
-        authors = Author.objects.all()  # Récupère tous les auteurs
+        authors = Author.objects.all() 
         return render(request, 'author_list.html', {'authors': authors})
     
 class AuthorDetailsView(View):
@@ -171,10 +223,10 @@ class AddAuthorView(View):
         return render(request, 'add_author.html')
     
     def post(self, request):
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        birth_date = request.POST.get('birth_date')
-        nationality = request.POST.get('nationality')
+        first_name = request.POST.get('first_name').strip()
+        last_name = request.POST.get('last_name').strip()
+        birth_date = request.POST.get('birth_date').strip()
+        nationality = request.POST.get('nationality').strip()
 
         author = Author(
             first_name=first_name,
@@ -182,7 +234,11 @@ class AddAuthorView(View):
             birth_date=birth_date,
             nationality=nationality)
         
-        author.save()
+        try:
+            author.save()
+        except Exception as e:
+            return render(request, 'add_author.html', {'error_message': str(e)})
+        
         return render(request, 'add_author.html', {'success_message': "Auteur ajouté avec succès!"})
     
 class DelAuthorView(View):
@@ -209,10 +265,15 @@ class EditAuthorView(View):
             except Category.DoesNotExist:
                 raise Http404("Auteur non trouvée")
 
-            author.first_name = request.POST.get('first_name')
-            author.last_name = request.POST.get('last_name')
-            author.birth_date = request.POST.get('birth_date')
-            author.nationality = request.POST.get('nationality')
-            author.save()
+            author.first_name = request.POST.get('first_name').strip()
+            author.last_name = request.POST.get('last_name').strip()
+            author.birth_date = request.POST.get('birth_date').strip()
+            author.nationality = request.POST.get('nationality').strip()
+
+            try:
+                author.save()
+            except Exception as e:
+                return render(request, 'edit_author.html', {'author': author, 'error_message': str(e)})
+            
             return render(request, 'edit_author.html', {'author': author, 'success_message': "Auteur mis à jour avec succès!"})
     

@@ -9,11 +9,26 @@
 <p>Ajouter un livre</p>
 
 {% if success_message %}
-    <p style="color: green;">{{ success_message }}</p>
+<div class="alert alert-success" role="alert">
+    {{ success_message }}
+</div>
 {% endif %}
+
 {% if error_message %}
-    <p style="color: red;">{{ error_message }}</p>
+<div class="alert alert-danger" role="alert">
+    {{ error_message }}
+</div>
 {% endif %}
+
+{% if errors %}
+<div class="alert alert-danger" role="alert">
+    {% for error in errors %}
+        <div class="mb-1">- {{ error }}</div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<a href="{% url 'cat_list' %}">Retour</a>
 
 <form method="post">
     {% csrf_token %}

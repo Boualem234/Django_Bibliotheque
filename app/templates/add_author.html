@@ -1,27 +1,61 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 {% block title %}Démo Django{% endblock %}
 
 {% block content %}
 {% load static %}
 
-<h2>Book List Header</h2>
+<div class="container mt-5" style="max-width: 600px;">
+    <h2 class="mb-4 text-primary">Ajouter un Auteur</h2>
 
-<p>Ajouter un livre</p>
+    {% if success_message %}
+        <div class="alert alert-success" role="alert">
+            {{ success_message }}
+        </div>
+    {% endif %}
 
-{% if success_message %}
-    <p style="color: green;">{{ success_message }}</p>
-{% endif %}
-{% if error_message %}
-    <p style="color: red;">{{ error_message }}</p>
-{% endif %}
+    {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+            {{ error_message }}
+        </div>
+    {% endif %}
 
-<form method="post">
-    {% csrf_token %}
-    <textarea name="first_name" placeholder="Prénom" required></textarea><br>
-    <textarea name="last_name" placeholder="Nom" required></textarea><br>
-    <input type="date" name="birth_date" placeholder="Date de naissance" required><br>
-    <textarea name="nationality" placeholder="Nationnalité" required></textarea><br>
-    <button type="submit">Ajouter l'auteur</button>
-</form>
+    {% if errors %}
+        <div class="alert alert-danger" role="alert">
+            {% for error in errors %}
+                <div class="mb-1">- {{ error }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <a href="{% url 'author_list' %}" class="btn btn-outline-secondary mb-4">
+        &larr; Retour à la liste des auteurs
+    </a>
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="first_name" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Prénom" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="last_name" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Nom" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="birth_date" class="form-label">Date de naissance</label>
+            <input type="date" class="form-control" id="birth_date" name="birth_date" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="nationality" class="form-label">Nationalité</label>
+            <input type="text" class="form-control" id="nationality" name="nationality" placeholder="Nationalité" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Ajouter l'auteur</button>
+    </form>
+</div>
 
 {% endblock %}

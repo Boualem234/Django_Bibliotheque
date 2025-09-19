@@ -4,39 +4,88 @@
 {% block content %}
 {% load static %}
 
-<h2>Book List Header</h2>
+<div class="container my-5" style="max-width: 700px;">
+    <h2 class="mb-4 text-primary">Ajouter un livre</h2>
 
-<p>Ajouter un livre</p>
+    {% if success_message %}
+        <div class="alert alert-success" role="alert">
+            {{ success_message }}
+        </div>
+    {% endif %}
 
-{% if success_message %}
-    <p style="color: green;">{{ success_message }}</p>
-{% endif %}
-{% if error_message %}
-    <p style="color: red;">{{ error_message }}</p>
-{% endif %}
+    {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+            {{ error_message }}
+        </div>
+    {% endif %}
 
-<form method="post">
-    {% csrf_token %}
-    <textarea name="code" placeholder="Code" required></textarea><br>
-    <textarea name="title" placeholder="Title" required></textarea><br>
-    <input type="text" name="price" step="0.01" placeholder="Price" required></input>
-    <input type="date" name="date" placeholder="Date de publication" required></input><br>
-    <textarea name="edition" placeholder="Edition" required></textarea><br>
-    <select name="category" aria-placeholder="category" required>
-        <option value="" disabled selected>Select a category</option>
-        {% for cat in categories %}
-            <option value="{{ cat.id }}">{{ cat }}</option>
-        {% endfor %}
-    </select>
-    <select name="author" aria-placeholder="author" required>
-        <option value="" disabled selected>Select an author</option>
-        {% for auth in authors %}
-            <option value="{{ auth.id }}">{{ auth }}</option>
-        {% endfor %}
-    </select>
-    <textarea name="summary" placeholder="Summary"></textarea><br>
-    <button type="submit">Add Book</button>
-</form>
+    {% if errors %}
+        <div class="alert alert-danger" role="alert">
+            {% for error in errors %}
+                <div class="mb-1">- {{ error }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
+    <a href="{% url 'book_list' %}" class="btn btn-outline-secondary mb-4">
+        &larr; Retour à la liste des livres
+    </a>
+
+    <form method="post" novalidate>
+        {% csrf_token %} 
+
+        <div class="mb-3">
+            <label for="code" class="form-label">Code</label>
+            <input type="text" class="form-control" id="code" name="code" placeholder="Code" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Titre</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Titre" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="price" class="form-label">Prix ($)</label>
+            <input type="number" class="form-control" id="price" name="price" placeholder="Prix" step="0.01" min="0" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="date" class="form-label">Date de publication</label>
+            <input type="date" class="form-control" id="date" name="date" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="edition" class="form-label">Édition</label>
+            <input type="text" class="form-control" id="edition" name="edition" placeholder="Édition" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="category" class="form-label">Catégorie</label>
+            <select class="form-select" id="category" name="category" required>
+                <option value="" disabled selected>Choisir une catégorie</option>
+                {% for cat in categories %}
+                    <option value="{{ cat.id }}">{{ cat }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="author" class="form-label">Auteur</label>
+            <select class="form-select" id="author" name="author" required>
+                <option value="" disabled selected>Choisir un auteur</option>
+                {% for auth in authors %}
+                    <option value="{{ auth.id }}">{{ auth }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-4">
+            <label for="summary" class="form-label">Résumé</label>
+            <textarea class="form-control" id="summary" name="summary" placeholder="Résumé" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Ajouter le livre</button>
+    </form>
+</div>
 
 {% endblock %}
