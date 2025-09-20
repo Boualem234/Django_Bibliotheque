@@ -1,42 +1,79 @@
 {% extends 'base.html' %}
-{% block title %}Démo Django{% endblock %}
+{% block title %}Modifier l'auteur{% endblock %}
 
 {% block content %}
 {% load static %}
 
-<h2>Edit Book</h2>
+<div class="container my-5" style="max-width: 600px;">
+    <h2 class="mb-4 text-primary"><i class="fas fa-user-edit me-2"></i>Modifier l'auteur</h2>
 
-{% if success_message %}
-<div class="alert alert-success" role="alert">
-    {{ success_message }}
+    {% if success_message %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>{{ success_message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+    {% if error_message %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>{{ error_message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+    {% if errors %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            {% for error in errors %}
+                <div class="mb-1">- {{ error }}</div>
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+    <a href="{% url 'author_list' %}" class="btn btn-outline-secondary mb-4">
+        <i class="fas fa-arrow-left me-2"></i>Retour à la liste des auteurs
+    </a>
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="first_name" class="form-label">Prénom</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Prénom" required value="{{ author.first_name }}">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="last_name" class="form-label">Nom</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Nom" required value="{{ author.last_name }}">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="birth_date" class="form-label">Date de naissance</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                <input type="date" class="form-control" id="birth_date" name="birth_date" required value="{{ author.birth_date|date:'Y-m-d' }}">
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label for="nationality" class="form-label">Nationalité</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-flag"></i></span>
+                <input type="text" class="form-control" id="nationality" name="nationality" placeholder="Nationalité" required value="{{ author.nationality }}">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+            <i class="fas fa-save me-2"></i>Mettre à jour l'auteur
+        </button>
+    </form>
 </div>
-{% endif %}
-
-{% if error_message %}
-<div class="alert alert-danger" role="alert">
-    {{ error_message }}
-</div>
-{% endif %}
-
-{% if errors %}
-<div class="alert alert-danger" role="alert">
-    {% for error in errors %}
-        <div class="mb-1">- {{ error }}</div>
-    {% endfor %}
-</div>
-{% endif %}
-
-<a href="{% url 'author_list' %}">Retour</a>
-
-<form method="post">
-    {% csrf_token %}
-    <textarea name="first_name" placeholder="Prénom" required>{{ author.first_name }}</textarea><br>
-    <textarea name="last_name" placeholder="Nom" required>{{ author.last_name }}</textarea><br>
-    <input type="date" name="birth_date" placeholder="Date de naissance" required value="{{ author.birth_date|date:'Y-m-d' }}"><br>
-    <textarea name="nationality" placeholder="Nationnalité" required>{{ author.nationality }}</textarea><br>
-    <button type="submit">Mettre à jour l'auteur</button>
-</form>
-
-
 
 {% endblock %}

@@ -1,23 +1,28 @@
 {% extends 'base.html' %}
-{% block title %}Démo Django{% endblock %}
+{% block title %}Détails du livre{% endblock %}
 
 {% block content %}
 {% load static %}
 
-<h2>Book List Header</h2>
+<div class="container my-5" style="max-width: 700px;">
+    <h2 class="mb-4 text-primary"><i class="fas fa-book me-2"></i>Détails du livre</h2>
 
-<p>Book List</p>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <p class="mb-2"><strong>Code:</strong> {{ book.code }}</p>
+            <p class="mb-2"><strong>Titre:</strong> {{ book.title }}</p>
+            <p class="mb-2"><strong>Auteur:</strong> {{ book.author }}</p>
+            <p class="mb-2"><strong>Prix:</strong> ${{ book.price }}</p>
+            <p class="mb-2"><strong>Date de publication:</strong> {{ book.date }}</p>
+            <p class="mb-2"><strong>Édition:</strong> {{ book.edition }}</p>
+            <p class="mb-2"><strong>Catégorie:</strong> {{ book.category }}</p>
+            <p class="mb-2"><strong>Résumé:</strong> {{ book.summary }}</p>
+        </div>
+    </div>
 
-<P>{{book.code}}</P>
-<P>{{book.title}}</P>
-<P>{{book.author}}</P>
-<P>{{book.price}}</P>
-<P>{{book.date}}</P>
-<P>{{book.edition}}</P>
-<P>{{book.category}}</P>
-<P>{{book.summary}}</P>
-
-<a href="{% url 'book_list' %}">Retour</a>
-
+    <a href="{% url 'book_list' %}" class="btn btn-outline-secondary mt-4">
+        <i class="fas fa-arrow-left me-2"></i>Retour à la liste des livres
+    </a>
+</div>
 
 {% endblock %}

@@ -1,38 +1,55 @@
 {% extends 'base.html' %}
-{% block title %}Démo Django{% endblock %}
+{% block title %}Modifier la catégorie{% endblock %}
 
 {% block content %}
 {% load static %}
 
-<h2>Edit Book</h2>
+<div class="container my-5" style="max-width: 600px;">
+    <h2 class="mb-4 text-primary"><i class="fas fa-folder-open me-2"></i>Modifier la catégorie</h2>
 
-{% if success_message %}
-<div class="alert alert-success" role="alert">
-    {{ success_message }}
+    {% if success_message %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>{{ success_message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+    {% if error_message %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>{{ error_message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+    {% if errors %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            {% for error in errors %}
+                <div class="mb-1">- {{ error }}</div>
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+    <a href="{% url 'cat_list' %}" class="btn btn-outline-secondary mb-4">
+        <i class="fas fa-arrow-left me-2"></i>Retour à la liste des catégories
+    </a>
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        
+        <div class="mb-4">
+            <label for="name" class="form-label">Nom de la catégorie</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-folder"></i></span>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Nom de la catégorie" required value="{{ category.name }}">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+            <i class="fas fa-save me-2"></i>Mettre à jour la catégorie
+        </button>
+    </form>
 </div>
-{% endif %}
-
-{% if error_message %}
-<div class="alert alert-danger" role="alert">
-    {{ error_message }}
-</div>
-{% endif %}
-
-{% if errors %}
-<div class="alert alert-danger" role="alert">
-    {% for error in errors %}
-        <div class="mb-1">- {{ error }}</div>
-    {% endfor %}
-</div>
-{% endif %}
-
-<a href="{% url 'cat_list' %}">Retour</a>
-
-<form method="post">
-    {% csrf_token %}
-    <textarea name="name" placeholder="Name" required>{{ category.name }}</textarea><br>
-    <button type="submit">Update Category</button>
-</form>
-
 
 {% endblock %}

@@ -5,40 +5,61 @@
 {% load static %}
 
 <div class="container mt-5">
-
   <div class="row justify-content-center mt-4">
+
     <!-- Dracula -->
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-      <div class="card h-100 shadow-sm">
+      <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden hover-card">
         <img src="{% static 'img/dracula.jpg' %}" class="card-img-top img-fluid" alt="Dracula">
-        <div class="card-body">
-          <h5 class="card-title">Dracula</h5>
-          <p class="card-text">Le classique de Bram Stoker, entre horreur et fascination.</p>
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bold">Dracula</h5>
+          <p class="card-text text-muted">Le classique de Bram Stoker, entre horreur et fascination.</p>
         </div>
       </div>
     </div>
 
     <!-- L'Étranger -->
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-      <div class="card h-100 shadow-sm">
+      <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden hover-card">
         <img src="{% static 'img/etranger.jpg' %}" class="card-img-top img-fluid" alt="L'Étranger">
-        <div class="card-body">
-          <h5 class="card-title">L'Étranger</h5>
-          <p class="card-text">L’absurde selon Camus, vu par les yeux de Meursault.</p>
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bold">L'Étranger</h5>
+          <p class="card-text text-muted">L’absurde selon Camus, vu par les yeux de Meursault.</p>
         </div>
       </div>
     </div>
 
     <!-- Voyage au bout de la nuit -->
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-      <div class="card h-100 shadow-sm">
+      <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden hover-card">
         <img src="{% static 'img/voyageNuit.jpg' %}" class="card-img-top img-fluid" alt="Voyage au bout de la nuit">
-        <div class="card-body">
-          <h5 class="card-title">Voyage au bout de la nuit</h5>
-          <p class="card-text">Une plongée dans la noirceur du monde selon Céline.</p>
+        <div class="card-body text-center">
+          <h5 class="card-title fw-bold">Voyage au bout de la nuit</h5>
+          <p class="card-text text-muted">Une plongée dans la noirceur du monde selon Céline.</p>
         </div>
       </div>
     </div>
+
   </div>
 </div>
+
+<style>
+  .hover-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .hover-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+  }
+  .card-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.1rem;
+  }
+  .card-text {
+    font-size: 0.9rem;
+  }
+</style>
+
 {% endblock %}
+
+
