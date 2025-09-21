@@ -108,16 +108,43 @@ class EditBookView(View):
             book = Book.objects.get(pk=pk)
         except Book.DoesNotExist:
             raise Http404("Livre non trouvé")
-
-        book.code = request.POST.get('code').strip()
-        book.title = request.POST.get('title').strip()
-        book.price = request.POST.get('price').strip()
-        book.summary = request.POST.get('summary').strip()
-        book.date = request.POST.get('date').strip()
-        book.edition = request.POST.get('edition').strip()
+            
+        errors = []
         
+        code = request.POST.get('code').strip()
+        if not code:
+            errors.append("Le code est obligatoire.")
+
+        title = request.POST.get('title').strip()
+        if not title:
+            errors.append("Le titre est obligatoire.")
+
+        price = request.POST.get('price').strip()
+        if not price:
+            errors.append("Le prix est obligatoire.")
+
+        summary = request.POST.get('summary').strip()
+
+        date = request.POST.get('date').strip()
+        if not date:
+            errors.append("La date de publication est obligatoire.")
+
+        edition = request.POST.get('edition').strip()
+        if not edition:
+            errors.append("L'édition est obligatoire.")
+
         category_id = request.POST.get('category')
+        if not category_id:
+            errors.append("La catégorie est obligatoire.")
+
         author_id = request.POST.get('author')
+        if not author_id:   
+            errors.append("L'auteur est obligatoire.")
+
+        if errors:
+            categories = Category.objects.all()
+            authors = Author.objects.all()
+            return render(request, 'edit_book.html', {'book': book, 'categories': categories, 'authors': authors, 'errors': errors})
 
         book.category = Category.objects.get(id=category_id)
         book.author = Author.objects.get(id=author_id)
@@ -161,6 +188,12 @@ class AddCategoryView(View):
     def post(self, request):
         name = request.POST.get('name').strip()
 
+        errors = []
+        if not name:
+            errors.append("Le nom est obligatoire.")
+        if errors:
+            return render(request, 'add_category.html', {'errors': errors})
+
         category = Category(
             name=name,
         )
@@ -196,7 +229,11 @@ class EditCategoryView(View):
         except Category.DoesNotExist:
             raise Http404("Catégorie non trouvée")
 
-        category.name = request.POST.get('name').strip()
+        name = request.POST.get('name').strip()
+        if not name:
+            return render(request, 'edit_category.html', {'category': category, 'error_message': "Le nom est obligatoire."})
+
+        category.name = name
 
         try:
             category.save()
@@ -223,10 +260,24 @@ class AddAuthorView(View):
         return render(request, 'add_author.html')
     
     def post(self, request):
+
+        errors = []
+
         first_name = request.POST.get('first_name').strip()
+        if not first_name:
+            errors.append("Le prénom est obligatoire.")
         last_name = request.POST.get('last_name').strip()
+        if not last_name:
+            errors.append("Le nom est obligatoire.")
         birth_date = request.POST.get('birth_date').strip()
+        if not birth_date:
+            errors.append("La date de naissance est obligatoire.")
         nationality = request.POST.get('nationality').strip()
+        if not nationality:
+            errors.append("La nationalité est obligatoire.")
+
+        if errors:
+            return render(request, 'add_author.html', {'errors': errors})
 
         author = Author(
             first_name=first_name,
@@ -265,10 +316,22 @@ class EditAuthorView(View):
             except Category.DoesNotExist:
                 raise Http404("Auteur non trouvée")
 
-            author.first_name = request.POST.get('first_name').strip()
-            author.last_name = request.POST.get('last_name').strip()
-            author.birth_date = request.POST.get('birth_date').strip()
-            author.nationality = request.POST.get('nationality').strip()
+            errors = []
+
+            first_name = request.POST.get('first_name').strip()
+            if not first_name:
+                errors.append("Le prénom est obligatoire.")
+            last_name = request.POST.get('last_name').strip()
+            if not last_name:
+                errors.append("Le nom est obligatoire.")
+            birth_date = request.POST.get('birth_date').strip()
+            if not birth_date:
+                errors.append("La date de naissance est obligatoire.")
+            nationality = request.POST.get('nationality').strip()
+            if not nationality:
+                errors.append("La nationalité est obligatoire.")
+            if errors:
+                return render(request, 'edit_author.html', {'author': author, 'errors': errors})
 
             try:
                 author.save()
