@@ -2,6 +2,7 @@ from django.http import Http404
 from django.shortcuts import render
 from django.views.generic.base import View
 from .models import Book, Category, Author
+import datetime
 
 class IndexView(View):
     def get(self, request):
@@ -31,12 +32,28 @@ class AddBookView(View):
         price = request.POST.get('price').strip()
         if not price:
             errors.append("Le prix est obligatoire.")
+        else:
+            # Remplacer la virgule par un point pour supporter les deux formats
+            price_normalized = price.replace(',', '.')
+            try:
+                price_val = float(price_normalized)
+                if price_val < 0:
+                    errors.append("Le prix ne peut pas être négatif.")
+            except ValueError:
+                errors.append("Le prix doit être un nombre valide.")
 
         summary = request.POST.get('summary').strip()
 
         date = request.POST.get('date').strip()
         if not date:
             errors.append("La date de publication est obligatoire.")
+        else:
+            try:
+                pub_date = datetime.date.fromisoformat(date)
+                if pub_date > datetime.date.today():
+                    errors.append("La date de publication ne peut pas être dans le futur.")
+            except ValueError:
+                errors.append("La date de publication n’est pas valide.")
 
         edition = request.POST.get('edition').strip()
         if not edition:
@@ -122,12 +139,28 @@ class EditBookView(View):
         price = request.POST.get('price').strip()
         if not price:
             errors.append("Le prix est obligatoire.")
+        else:
+            price_normalized = price.replace(',', '.')
+            try:
+                price_val = float(price_normalized)
+                if price_val < 0:
+                    errors.append("Le prix ne peut pas être négatif.")
+            except ValueError:
+                errors.append("Le prix doit être un nombre valide.")
 
         summary = request.POST.get('summary').strip()
 
         date = request.POST.get('date').strip()
         if not date:
             errors.append("La date de publication est obligatoire.")
+        else:
+            try:
+                pub_date = datetime.date.fromisoformat(date)
+                if pub_date > datetime.date.today():
+                    errors.append("La date de publication ne peut pas être dans le futur.")
+            except ValueError:
+                errors.append("La date de publication n’est pas valide.")
+        
 
         edition = request.POST.get('edition').strip()
         if not edition:
@@ -272,6 +305,14 @@ class AddAuthorView(View):
         birth_date = request.POST.get('birth_date').strip()
         if not birth_date:
             errors.append("La date de naissance est obligatoire.")
+        else:
+            try:
+                pub_date = datetime.date.fromisoformat(birth_date)
+                if pub_date > datetime.date.today():
+                    errors.append("La date de naissance ne peut pas être dans le futur.")
+            except ValueError:
+                errors.append("La date de naissance n’est pas valide.")
+
         nationality = request.POST.get('nationality').strip()
         if not nationality:
             errors.append("La nationalité est obligatoire.")
@@ -327,6 +368,14 @@ class EditAuthorView(View):
             birth_date = request.POST.get('birth_date').strip()
             if not birth_date:
                 errors.append("La date de naissance est obligatoire.")
+            else:
+                try:
+                    pub_date = datetime.date.fromisoformat(birth_date)
+                    if pub_date > datetime.date.today():
+                        errors.append("La date de naissance ne peut pas être dans le futur.")
+                except ValueError:
+                    errors.append("La date de naissance n’est pas valide.")
+                    
             nationality = request.POST.get('nationality').strip()
             if not nationality:
                 errors.append("La nationalité est obligatoire.")
