@@ -179,6 +179,12 @@ class EditBookView(View):
             authors = Author.objects.all()
             return render(request, 'edit_book.html', {'book': book, 'categories': categories, 'authors': authors, 'errors': errors})
 
+        book.code = code
+        book.title = title
+        book.price = price_val
+        book.summary = summary
+        book.date = pub_date
+        book.edition = edition
         book.category = Category.objects.get(id=category_id)
         book.author = Author.objects.get(id=author_id)
 
