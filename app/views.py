@@ -388,6 +388,11 @@ class EditAuthorView(View):
             if errors:
                 return render(request, 'edit_author.html', {'author': author, 'errors': errors})
 
+            author.first_name = first_name
+            author.last_name = last_name
+            author.birth_date = birth_date
+            author.nationality = nationality
+
             try:
                 author.save()
             except Exception as e:
