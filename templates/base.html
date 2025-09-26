@@ -79,17 +79,31 @@
           <li class="nav-item"><a class="nav-link" href="{% url 'book_list' %}">Livres</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'cat_list' %}">Categories</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'author_list' %}">Auteurs</a></li>
+          {% if user.is_authenticated %}
+            <a href="{% url 'user_edit' %}" class="btn">{{ user.first_name|upper }} {{ user.last_name|upper }}</a>
+            <a href="{% url 'logout' %}" class="btn">SE DÉCONNECTER</a>
+          {% else %}
+            <a href="{% url 'user_create' %}" class="btn">CRÉER UN COMPTE</a>
+            <a href="{% url 'login' %}" class="btn">SE CONNECTER</a>
+          {% endif %}
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Main content -->
-  <main class="py-5">
+  <main>
     <div class="container">
-      {% block content %}
-      <!-- Contenu spécifique à chaque page -->
-      {% endblock %}
+      <div class="row">
+        <div class="col-12">
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{ message.tags|default:'info' }} mt-2">{{ message }}</div>
+          {% endfor %}
+          {% endif %}
+
+          {% block content %}{% endblock %}
+        </div>
+      </div>
     </div>
   </main>
 

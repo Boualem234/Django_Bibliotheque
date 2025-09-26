@@ -1,0 +1,28 @@
+{% if range_pages and range_pages.stop > 2 %}
+<nav id="pagination">
+  <ul class="pagination pagination-sm justify-content-center">
+    {% if page_items.has_previous %}
+    <li class="page-item"><a href="?page={{ page_items.previous_page_number }}" class="page-link">Précédent</a></li>
+    {% else %}
+    <li class="page-item disabled"><a href="#" class="page-link">Précédent</a></li>
+    {% endif %}
+
+    {% for i in range_pages %}
+    <li class="page-item {% if page_items.number == i %} {{ 'active' }} {% endif %}"><a class="page-link"
+        href="?page={{ i }}">{{ i }}</a></li>
+    {% endfor %}
+
+    {% if page_items.has_next %}
+    <li class="page-item"><a href="?page={{ page_items.next_page_number }}" class="page-link">Suivant</a></li>
+    {% else %}
+    <li class="page-item disabled"><a href="#" class="page-link">Suivant</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
+
+<div class="pagination-items-count">
+  {% with count=page_items.paginator.count %}
+  {{ count }} item{{ count|pluralize }} trouvé{{ count|pluralize }}
+  {% endwith %}
+</div>

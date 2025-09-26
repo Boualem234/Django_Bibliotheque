@@ -1,12 +1,16 @@
 from django.http import Http404
-from django.shortcuts import render
+from django.contrib import messages
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic.base import View
+
 from ..models import Category
+from ..forms import CategoryForm
 
 class CategoryListView(View):
     def get(self, request):
         categories = Category.objects.all() 
-        return render(request, 'cat_list.html', {'categories': categories})
+        return render(request, 'app/category/cat_list.html', {'categories': categories})
     
 class CategoryDetailsView(View):
     def get(self, request, pk):
@@ -14,65 +18,79 @@ class CategoryDetailsView(View):
             category = Category.objects.get(pk=pk)
         except Category.DoesNotExist:
             raise Http404("Catégorie non trouvée")
-        return render(request, 'cat_details.html', {'category': category})
+        return render(request, 'app/category/cat_details.html', {'category': category})
     
-class AddCategoryView(View):
+class AddCategoryView(PermissionRequiredMixin, View):
+    permission_required = 'app.add_category'
+    template_name = "app/category/category_form.html"
+
     def get(self, request):
-        return render(request, 'add_category.html')
+        context = {
+            'action_text': 'Ajouter',
+            'form': CategoryForm()
+        }
+        return render(request, self.template_name, context)
     
     def post(self, request):
-        name = request.POST.get('name').strip()
-
-        errors = []
-        if not name:
-            errors.append("Le nom est obligatoire.")
-        if errors:
-            return render(request, 'add_category.html', {'errors': errors})
-
-        category = Category(
-            name=name,
-        )
-
-        try:
-            category.save()
-        except Exception as e:
-            return render(request, 'add_category.html', {'error_message': str(e)})
+        form = CategoryForm(request.POST)
         
-        return render(request, 'add_category.html', {'success_message': "Catégorie ajoutée avec succès!"})
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            form.save()
+            messages.success(
+                request,
+                f"Catérorie \"{name}\" ajoutée avec succès.",
+            )
+            return redirect("category_list")
+
+        context = {
+            'action_text': 'Ajouter',
+            'form': form
+        }
+        return render(request, self.template_name, context)
+
     
-class DelCategoryView(View):
-    def get(self, request, pk):
-        try:
-            category = Category.objects.get(pk=pk)
-            category.delete()
-            categories = Category.objects.all()
-            return render(request, 'cat_list.html', {'categories': categories, 'success_message': "Catégorie supprimée avec succès!"})
-        except Category.DoesNotExist:
-            raise Http404("Catégorie non trouvée")
-        
 class EditCategoryView(View):
+    permission_required = "app.change_category"
+    template_name = "app/category/category_form.html"
+
     def get(self, request, pk):
-        try:
-            category = Category.objects.get(pk=pk)
-        except Category.DoesNotExist:
-            raise Http404("Catégorie non trouvée")
-        return render(request, 'edit_category.html', {'category': category})
+        category = get_object_or_404(Category, id=pk)
+        context = {
+            'action_text': 'Modifier',
+            'form': CategoryForm(instance=category)
+        }
+        return render(request, self.template_name, context)
     
     def post(self, request, pk):
-        try:
-            category = Category.objects.get(pk=pk)
-        except Category.DoesNotExist:
-            raise Http404("Catégorie non trouvée")
-
-        name = request.POST.get('name').strip()
-        if not name:
-            return render(request, 'edit_category.html', {'category': category, 'error_message': "Le nom est obligatoire."})
-
-        category.name = name
-
-        try:
-            category.save()
-        except Exception as e:
-            return render(request, 'edit_category.html', {'category': category, 'error_message': str(e)})
+        category = get_object_or_404(Category, id=pk)
+        form = CategoryForm(request.POST, instance=category)
+        
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                f"Catérorie \"{category.name}\" modifiée avec succès.",
+            )
+            return redirect("category", category.id)
+        
+        context = {
+            'action_text': 'Modifier',
+            'form': form
+        }
+        return render(request, self.template_name, context)
     
-        return render(request, 'edit_category.html', {'category': category, 'success_message': "Catégorie mise à jour avec succès!"})
+class DelCategoryView(View):
+    permission_required = "app.delete_category"
+
+    def get(self, request, pk):
+        try:
+            category = get_object_or_404(Category, id=pk)
+            category.delete()
+            messages.success(
+                request,
+                f"Catérorie \"{category.name}\" supprimée avec succès.",
+            )
+        except Category.DoesNotExist:
+            pass
+        return redirect("category_list")

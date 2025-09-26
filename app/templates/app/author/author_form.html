@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Démo Django{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="container my-5" style="max-width: 500px;">
+    <h2 class="mb-4 text-primary"><i class="fas fa-folder-plus me-2"></i>{{ action_text }} une catégorie</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{form}}
+
+        <div>
+            <a href="{% url 'author_list' %}" class="btn btn-outline-secondary mb-4">Retour</a>
+            <input type="submit" value="{{ action_text }}" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+{% endblock %}
