@@ -41,6 +41,7 @@ class Book(models.Model):
   edition = models.CharField(verbose_name = "Edition du livre")
   category = models.ForeignKey(Category, verbose_name="Catégorie", related_name='books', on_delete=models.CASCADE)
   author = models.ForeignKey(Author, verbose_name="Auteurs", related_name='books', on_delete=models.CASCADE)
+  image = models.ImageField(default="", upload_to='books/', verbose_name="Image")
 
   def __str__(self):
     return '{} - {}'.format(self.code, self.title)

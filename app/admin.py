@@ -13,3 +13,7 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ['code', 'name']
 
 admin.site.register(Author)
+
+
+
+######          FAIRE ADMIN         ######
