@@ -80,7 +80,7 @@
           <li class="nav-item"><a class="nav-link" href="{% url 'cat_list' %}">Categories</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'author_list' %}">Auteurs</a></li>
           {% if user.is_authenticated %}
-            <a href="{% url 'user_edit' %}" class="btn">{{ user.first_name|upper }} {{ user.last_name|upper }}</a>
+            <a href="{% url 'user_edit' %}" class="btn">PROFIL</a>
             <a href="{% url 'logout' %}" class="btn">SE DÉCONNECTER</a>
           {% else %}
             <a href="{% url 'user_create' %}" class="btn">CRÉER UN COMPTE</a>
