@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Supprimer un livre{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<h2>Supprimer un livre</h2>
+
+<h5>Êtes-vous certain de vouloir supprimer ce livre ?</h5>
+<div class="delete-section">
+  <div>
+    {% if book.image %}
+    <img class="img-thumbnail" src="{% get_media_prefix %}{{ book.image }}" alt="{{ product.name }}" />
+    {% endif %}
+  </div>
+  <p class="mb-2"><strong>Code:</strong> {{ book.code }}</p>
+  <p class="mb-2"><strong>Titre:</strong> {{ book.title }}</p>
+  <p class="mb-2"><strong>Auteur:</strong> {{ book.author }}</p>
+  <p class="mb-2"><strong>Prix:</strong> ${{ book.price }}</p>
+  <p class="mb-2"><strong>Date de publication:</strong> {{ book.date }}</p>
+  <p class="mb-2"><strong>Édition:</strong> {{ book.edition }}</p>
+  <p class="mb-2"><strong>Catégorie:</strong> {{ book.category }}</p>
+  <p class="mb-2"><strong>Résumé:</strong> {{ book.summary }}</p>
+</div>
+
+<form method="post">
+  {% csrf_token %}
+  <a href="{% url 'book_list' %}" class="btn btn-secondary">Retour</a>
+  <input type="submit" value="Supprimer" class="btn btn-danger" />
+</form>
+
+{% endblock %}

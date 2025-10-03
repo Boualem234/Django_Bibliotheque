@@ -1,5 +1,6 @@
 from django.http import Http404
 from django.contrib import messages
+from django.core.paginator import Paginator
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic.base import View
@@ -10,8 +11,15 @@ import datetime
 
 class BookListView(View):
     def get(self, request):
-        books = Book.objects.all() 
-        return render(request, 'app/book/book_list.html', {'books': books})
+        books = Book.objects.all()
+        paginator = Paginator(books, 5) 
+        page_number = request.GET.get('page') or 1
+        context = {
+            'range_pages': range(1, paginator.num_pages + 1),
+            'page_books': paginator.get_page(page_number),
+        }
+
+        return render(request, 'app/book/book_list.html', context)
     
 class BookDetailsView(View):
     def get(self, request, pk):

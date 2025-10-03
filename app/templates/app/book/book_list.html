@@ -16,7 +16,7 @@
     {% endif %}
 
     <ul class="list-group">
-        {% for book in books %}
+        {% for book in page_books %}
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <div>
                 <strong>{{ book.title }}</strong> par {{ book.author }}
@@ -41,6 +41,8 @@
         <li class="list-group-item text-muted">Aucun livre disponible.</li>
         {% endfor %}
     </ul>
+
+    {% include 'app/includes/pagination_section.html' with page_items=page_books %}
 </div>
 
 {% endblock %}
