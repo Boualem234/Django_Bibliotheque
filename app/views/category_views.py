@@ -1,5 +1,6 @@
 from django.http import Http404
 from django.contrib import messages
+from django.core.paginator import Paginator
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic.base import View
@@ -9,8 +10,14 @@ from ..forms import CategoryForm
 
 class CategoryListView(View):
     def get(self, request):
-        categories = Category.objects.all() 
-        return render(request, 'app/category/cat_list.html', {'categories': categories})
+        categories = Category.objects.all()
+        paginator = Paginator(categories, 5)  
+        page_number = request.GET.get('page') or 1
+        context = {
+            'range_pages': range(1, paginator.num_pages + 1),
+            'page_categories': paginator.get_page(page_number),
+        }
+        return render(request, 'app/category/cat_list.html', context)
     
 class CategoryDetailsView(View):
     def get(self, request, pk):
