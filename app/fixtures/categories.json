@@ -1,0 +1,58 @@
+[
+  {
+    "model": "app.category",
+    "pk": 1,
+    "fields": {
+      "name": "Roman"
+    }
+  },
+  {
+    "model": "app.category",
+    "pk": 2,
+    "fields": {
+      "name": "Science-Fiction"
+    }
+  },
+  {
+    "model": "app.category",
+    "pk": 3,
+    "fields": {
+      "name": "Philosophie"
+    }
+  },
+  {
+    "model": "app.category",
+    "pk": 4,
+    "fields": {
+      "name": "Histoire"
+    }
+  },
+  {
+    "model": "app.category",
+    "pk": 5,
+    "fields": {
+      "name": "Biographie"
+    }
+  },
+  {
+    "model": "app.category",
+    "pk": 6,
+    "fields": {
+      "name": "Thriller"
+    }
+  },
+  {
+    "model": "app.category",
+    "pk": 7,
+    "fields": {
+      "name": "Poésie"
+    }
+  },
+  {
+    "model": "app.category",
+    "pk": 8,
+    "fields": {
+      "name": "Essai"
+    }
+  }
+]

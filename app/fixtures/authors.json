@@ -1,0 +1,102 @@
+[
+  {
+    "model": "app.author",
+    "pk": 1,
+    "fields": {
+      "first_name": "Albert",
+      "last_name": "Camus",
+      "birth_date": "1913-11-07",
+      "nationality": "Française"
+    }
+  },
+  {
+    "model": "app.author",
+    "pk": 2,
+    "fields": {
+      "first_name": "Victor",
+      "last_name": "Hugo",
+      "birth_date": "1802-02-26",
+      "nationality": "Française"
+    }
+  },
+  {
+    "model": "app.author",
+    "pk": 3,
+    "fields": {
+      "first_name": "Jules",
+      "last_name": "Verne",
+      "birth_date": "1828-02-08",
+      "nationality": "Française"
+    }
+  },
+  {
+    "model": "app.author",
+    "pk": 4,
+    "fields": {
+      "first_name": "George",
+      "last_name": "Orwell",
+      "birth_date": "1903-06-25",
+      "nationality": "Britannique"
+    }
+  },
+  {
+    "model": "app.author",
+    "pk": 5,
+    "fields": {
+      "first_name": "Agatha",
+      "last_name": "Christie",
+      "birth_date": "1890-09-15",
+      "nationality": "Britannique"
+    }
+  },
+  {
+    "model": "app.author",
+    "pk": 6,
+    "fields": {
+      "first_name": "Antoine",
+      "last_name": "de Saint-Exupéry",
+      "birth_date": "1900-06-29",
+      "nationality": "Française"
+    }
+  },
+  {
+    "model": "app.author",
+    "pk": 7,
+    "fields": {
+      "first_name": "Marcel",
+      "last_name": "Proust",
+      "birth_date": "1871-07-10",
+      "nationality": "Française"
+    }
+  },
+  {
+    "model": "app.author",
+    "pk": 8,
+    "fields": {
+      "first_name": "Isaac",
+      "last_name": "Asimov",
+      "birth_date": "1920-01-02",
+      "nationality": "Américaine"
+    }
+  },
+  {
+    "model": "app.author",
+    "pk": 9,
+    "fields": {
+      "first_name": "Simone",
+      "last_name": "de Beauvoir",
+      "birth_date": "1908-01-09",
+      "nationality": "Française"
+    }
+  },
+  {
+    "model": "app.author",
+    "pk": 10,
+    "fields": {
+      "first_name": "Jean-Paul",
+      "last_name": "Sartre",
+      "birth_date": "1905-06-21",
+      "nationality": "Française"
+    }
+  }
+]
