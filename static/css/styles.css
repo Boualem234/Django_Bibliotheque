@@ -1,19 +1,145 @@
-/* styles.css */
 
-/* Reset un peu moins agressif, Bootstrap gère déjà beaucoup */
 body {
-    font-family: 'Merriweather', serif;
-    background: linear-gradient(120deg, #1e1e2f, #2c3e50);
-    color: #f4f4f4;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
     line-height: 1.6;
-    padding-top: 40px;
-  }
-  
-  /* Titre principal */
-  h1.display-4 {
-    color: #f9ca24 !important; /* Override bootstrap */
-    text-shadow: 2px 2px #000;
-  }
+}
+
+/* Styles pour les images des livres dans index */
+.featured-book-img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 10px;
+    border-radius: 15px 15px 0 0;
+    transition: all 0.3s ease;
+}
+
+.book-cover-img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    background: white;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.book-cover-img:hover {
+    transform: scale(1.02);
+}
+
+.card-image-wrapper {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 15px;
+    border-radius: 20px 20px 0 0;
+}
+
+.placeholder-img {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+/* Amélioration des cards */
+.featured-book-card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.featured-book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Badge de catégorie */
+.category-badge {
+    background: rgba(33, 150, 243, 0.9);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+/* autres sections */
+.services-section .services-images img,
+.stats-section .stats-image img {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.services-section .services-images img:hover,
+.stats-section .stats-image img:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive pour les images */
+@media (max-width: 768px) {
+    .featured-book-img,
+    .book-cover-img {
+        height: 240px;
+        padding: 8px;
+    }
+    
+    .card-image-wrapper {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .featured-book-img,
+    .book-cover-img {
+        height: 200px;
+        padding: 6px;
+    }
+}
+
+/* Correction des couleurs des titres */
+.stats-section h2,
+.book-title {
+    color: #1a252f !important;
+}
+
+.stats-section .stat-number {
+    color: #2c3e50 !important;
+}
+
+.stats-section .stat-label {
+    color: #34495e !important;
+}
+
+/* Suppression des soulignements dans index */
+.featured-book-card a,
+.hero-buttons a,
+.services-section a,
+.stats-section a {
+    text-decoration: none !important;
+}
+
+.featured-book-card a:hover,
+.hero-buttons a:hover {
+    text-decoration: none !important;
+}
+
+/* Titre des livres sans soulignement */
+.book-title a {
+    text-decoration: none !important;
+}
+
+.book-title a:hover {
+    text-decoration: none !important;
+    color: #2196f3 !important;
+}
   
   /* Grille des livres */
   .library-grid {
@@ -24,7 +150,7 @@ body {
     justify-content: center;
   }
   
-  /* Carte de livre personnalisée */
+  /* Carte de livre  */
   .book-card {
     background-color: #292c3f;
     border-radius: 12px;
@@ -78,7 +204,7 @@ body {
     margin-bottom: 1rem;
   }
   
-  /* Footer */
+
   footer {
     background-color: #1e1e2f;
     color: #95a5a6;
@@ -86,7 +212,7 @@ body {
     text-align: center;
   }
   
-  /* Scrollbar stylisée */
+  /* Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }

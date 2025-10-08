@@ -2,31 +2,29 @@
 {% block title %}Supprimer un livre{% endblock %}
 
 {% block content %}
-{% load static %}
-
-<h2>Supprimer un livre</h2>
-
-<h5>Êtes-vous certain de vouloir supprimer ce livre ?</h5>
-<div class="delete-section">
-  <div>
-    {% if book.image %}
-    <img class="img-thumbnail" src="{% get_media_prefix %}{{ book.image }}" alt="{{ product.name }}" />
-    {% endif %}
-  </div>
-  <p class="mb-2"><strong>Code:</strong> {{ book.code }}</p>
-  <p class="mb-2"><strong>Titre:</strong> {{ book.title }}</p>
-  <p class="mb-2"><strong>Auteur:</strong> {{ book.author }}</p>
-  <p class="mb-2"><strong>Prix:</strong> ${{ book.price }}</p>
-  <p class="mb-2"><strong>Date de publication:</strong> {{ book.date }}</p>
-  <p class="mb-2"><strong>Édition:</strong> {{ book.edition }}</p>
-  <p class="mb-2"><strong>Catégorie:</strong> {{ book.category }}</p>
-  <p class="mb-2"><strong>Résumé:</strong> {{ book.summary }}</p>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white text-center">
+                    <h4><i class="fas fa-exclamation-triangle me-2"></i>Confirmation de suppression</h4>
+                </div>
+                <div class="card-body text-center">
+                    <p class="mb-4">Êtes-vous sûr de vouloir supprimer ce livre ?</p>
+                    <h5 class="text-danger mb-4">{{ book.title }}</h5>
+                    
+                    <form method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger me-3">
+                            <i class="fas fa-trash me-2"></i>Confirmer la suppression
+                        </button>
+                    </form>
+                    <a href="{% url 'book_list' %}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Annuler
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<form method="post">
-  {% csrf_token %}
-  <a href="{% url 'book_list' %}" class="btn btn-secondary">Retour</a>
-  <input type="submit" value="Supprimer" class="btn btn-danger" />
-</form>
-
 {% endblock %}

@@ -48,7 +48,7 @@ class AddCategoryView(PermissionRequiredMixin, View):
                 request,
                 f"Catérorie \"{name}\" ajoutée avec succès.",
             )
-            return redirect("category_list")
+            return redirect("cat_list")
 
         context = {
             'action_text': 'Ajouter',
@@ -79,7 +79,7 @@ class EditCategoryView(View):
                 request,
                 f"Catérorie \"{category.name}\" modifiée avec succès.",
             )
-            return redirect("category", category.id)
+            return redirect("cat_list")
         
         context = {
             'action_text': 'Modifier',
@@ -89,15 +89,15 @@ class EditCategoryView(View):
     
 class DelCategoryView(View):
     permission_required = "app.delete_category"
+    template_name = "app/category/category_confirm_delete.html"
 
     def get(self, request, pk):
-        try:
-            category = get_object_or_404(Category, id=pk)
-            category.delete()
-            messages.success(
-                request,
-                f"Catérorie \"{category.name}\" supprimée avec succès.",
-            )
-        except Category.DoesNotExist:
-            pass
-        return redirect("category_list")
+        category = get_object_or_404(Category, id=pk)
+        return render(request, self.template_name, {'category': category})
+    
+    def post(self, request, pk):
+        category = get_object_or_404(Category, id=pk)
+        name = category.name
+        category.delete()
+        messages.success(request, f"Catégorie \"{name}\" supprimée avec succès.")
+        return redirect("cat_list")

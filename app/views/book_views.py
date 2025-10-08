@@ -12,11 +12,25 @@ import datetime
 class BookListView(View):
     def get(self, request):
         books = Book.objects.all()
+        search_query = request.GET.get('search', '').strip()
+        
+        if search_query:
+            books = books.filter(
+                title__icontains=search_query
+            ).distinct() | books.filter(
+                author__first_name__icontains=search_query
+            ).distinct() | books.filter(
+                author__last_name__icontains=search_query
+            ).distinct() | books.filter(
+                category__name__icontains=search_query
+            ).distinct()
+        
         paginator = Paginator(books, 5) 
         page_number = request.GET.get('page') or 1
         context = {
             'range_pages': range(1, paginator.num_pages + 1),
             'page_books': paginator.get_page(page_number),
+            'search_query': search_query,
         }
 
         return render(request, 'app/book/book_list.html', context)

@@ -5,20 +5,20 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic.base import View
 
-from ..models import Book, Category, Author
-import datetime
+from ..models import Author
+from ..forms import AuthorForm
 
 class AuthorListView(View):
     def get(self, request):
         authors = Author.objects.all()
-        paginator = Paginator(authors, 5) 
+        paginator = Paginator(authors, 5)
         page_number = request.GET.get('page') or 1
         context = {
             'range_pages': range(1, paginator.num_pages + 1),
             'page_authors': paginator.get_page(page_number),
-        } 
+        }
         return render(request, 'app/author/author_list.html', context)
-    
+
 class AuthorDetailsView(View):
     def get(self, request, pk):
         try:
@@ -26,69 +26,76 @@ class AuthorDetailsView(View):
         except Author.DoesNotExist:
             raise Http404("Auteur non trouvé")
         return render(request, 'app/author/author_details.html', {'author': author})
-    
+
 class AddAuthorView(PermissionRequiredMixin, View):
-    permission_required = "app.add_author"
-    template_name = "app/author/add_author.html"
+    permission_required = 'app.add_author'
+    template_name = "app/author/author_form.html"
 
+    def get(self, request):
+        context = {
+            'action_text': 'Ajouter',
+            'form': AuthorForm()
+        }
+        return render(request, self.template_name, context)
     
-class DelAuthorView(View):
-    def get(self, request, pk):
-        try:
-            author = Author.objects.get(pk=pk)
-            author.delete()
-            authors = Author.objects.all()
-            return render(request, 'author_list.html', {'authors': authors, 'success_message': "Auteur supprimé avec succès!"})
-        except Author.DoesNotExist:
-            raise Http404("Auteur non trouvé")
+    def post(self, request):
+        form = AuthorForm(request.POST)
         
-class EditAuthorView(View):
-        def get(self, request, pk):
-            try:
-                author = Author.objects.get(pk=pk)
-            except Category.DoesNotExist:
-                raise Http404("Catégorie non trouvée")
-            return render(request, 'edit_author.html', {'author': author})
+        if form.is_valid():
+            author = form.save()
+            messages.success(
+                request,
+                f"Auteur \"{author.first_name} {author.last_name}\" ajouté avec succès.",
+            )
+            return redirect("author_list")
 
-        def post(self, request, pk):
-            try:
-                author = Author.objects.get(pk=pk)
-            except Category.DoesNotExist:
-                raise Http404("Auteur non trouvée")
+        context = {
+            'action_text': 'Ajouter',
+            'form': form
+        }
+        return render(request, self.template_name, context)
 
-            errors = []
+class EditAuthorView(PermissionRequiredMixin, View):
+    permission_required = "app.change_author"
+    template_name = "app/author/author_form.html"
 
-            first_name = request.POST.get('first_name').strip()
-            if not first_name:
-                errors.append("Le prénom est obligatoire.")
-            last_name = request.POST.get('last_name').strip()
-            if not last_name:
-                errors.append("Le nom est obligatoire.")
-            birth_date = request.POST.get('birth_date').strip()
-            if not birth_date:
-                errors.append("La date de naissance est obligatoire.")
-            else:
-                try:
-                    pub_date = datetime.date.fromisoformat(birth_date)
-                    if pub_date > datetime.date.today():
-                        errors.append("La date de naissance ne peut pas être dans le futur.")
-                except ValueError:
-                    errors.append("La date de naissance n’est pas valide.")
-                    
-            nationality = request.POST.get('nationality').strip()
-            if not nationality:
-                errors.append("La nationalité est obligatoire.")
-            if errors:
-                return render(request, 'edit_author.html', {'author': author, 'errors': errors})
+    def get(self, request, pk):
+        author = get_object_or_404(Author, id=pk)
+        context = {
+            'action_text': 'Modifier',
+            'form': AuthorForm(instance=author)
+        }
+        return render(request, self.template_name, context)
+    
+    def post(self, request, pk):
+        author = get_object_or_404(Author, id=pk)
+        form = AuthorForm(request.POST, instance=author)
+        
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                f"Auteur \"{author.first_name} {author.last_name}\" modifié avec succès.",
+            )
+            return redirect("author_list")
+        
+        context = {
+            'action_text': 'Modifier',
+            'form': form
+        }
+        return render(request, self.template_name, context)
 
-            author.first_name = first_name
-            author.last_name = last_name
-            author.birth_date = birth_date
-            author.nationality = nationality
+class DelAuthorView(PermissionRequiredMixin, View):
+    permission_required = "app.delete_author"
+    template_name = "app/author/author_confirm_delete.html"
 
-            try:
-                author.save()
-            except Exception as e:
-                return render(request, 'edit_author.html', {'author': author, 'error_message': str(e)})
-            
-            return render(request, 'edit_author.html', {'author': author, 'success_message': "Auteur mis à jour avec succès!"})
+    def get(self, request, pk):
+        author = get_object_or_404(Author, id=pk)
+        return render(request, self.template_name, {'author': author})
+    
+    def post(self, request, pk):
+        author = get_object_or_404(Author, id=pk)
+        name = f"{author.first_name} {author.last_name}"
+        author.delete()
+        messages.success(request, f"Auteur \"{name}\" supprimé avec succès.")
+        return redirect("author_list")
