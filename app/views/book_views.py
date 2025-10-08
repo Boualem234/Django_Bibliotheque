@@ -78,7 +78,7 @@ class EditBookView(View):
 
     def post(self, request, pk):
         book = get_object_or_404(Book, id=pk)
-        form = BookForm(request.POST, instance=book)
+        form = BookForm(request.POST,request.FILES, instance=book)
 
         if form.is_valid():
 
