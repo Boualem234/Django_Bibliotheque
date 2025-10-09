@@ -1,8 +1,28 @@
 
+/* ==============================================
+   BASE STYLES - BibliBoua
+   ============================================== */
+
+/* Variables CSS */
+:root {
+  --primary-color: #2196f3;
+  --primary-dark: #1976d2;
+  --secondary-color: #4caf50;
+  --text-dark: #333;
+  --text-muted: #666;
+  --text-light: #777;
+  --background-light: #f8f9fa;
+  --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+  --shadow-medium: 0 5px 20px rgba(0,0,0,0.15);
+  --border-radius: 8px;
+  --border-radius-large: 15px;
+}
+
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f8f9fa;
-    line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-light);
+  line-height: 1.6;
+  color: var(--text-dark);
 }
 
 /* Styles pour les images des livres dans index */
@@ -116,29 +136,6 @@ body {
 
 .stats-section .stat-label {
     color: #34495e !important;
-}
-
-/* Suppression des soulignements dans index */
-.featured-book-card a,
-.hero-buttons a,
-.services-section a,
-.stats-section a {
-    text-decoration: none !important;
-}
-
-.featured-book-card a:hover,
-.hero-buttons a:hover {
-    text-decoration: none !important;
-}
-
-/* Titre des livres sans soulignement */
-.book-title a {
-    text-decoration: none !important;
-}
-
-.book-title a:hover {
-    text-decoration: none !important;
-    color: #2196f3 !important;
 }
   
   /* Grille des livres */

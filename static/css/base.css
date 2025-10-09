@@ -1,0 +1,127 @@
+/* ==============================================
+   BASE LAYOUT STYLES - BibliBoua
+   ============================================== */
+
+/* Base Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-light);
+  margin: 0;
+  color: var(--text-dark);
+}
+
+/* Header */
+header {
+  position: relative;
+  background: linear-gradient(rgba(33, 150, 243, 0.8), rgba(25, 118, 210, 0.8)), url("../img/bibliFutur1.jpg") no-repeat center center/cover;
+  color: #fff;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  opacity: 0.9;
+}
+
+/* Navigation */
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #dee2e6;
+  padding: 1rem 0;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+}
+
+.nav-link {
+  color: var(--text-dark) !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem !important;
+}
+
+.nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Main Content */
+main {
+  min-height: calc(100vh - 200px);
+  padding: 2rem 0;
+}
+
+/* Footer */
+footer {
+  background: var(--text-dark);
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+footer p {
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+footer a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--primary-color);
+}
+
+/* Alert Messages */
+.alert {
+  border-radius: var(--border-radius-large);
+  border: none;
+  box-shadow: var(--shadow-light);
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  header p {
+    font-size: 1rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+}

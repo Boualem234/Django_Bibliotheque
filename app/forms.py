@@ -72,6 +72,10 @@ class BookForm(forms.ModelForm):
         'edition': forms.TextInput(attrs={'class': 'form-control'}),
         'category': forms.Select(attrs={'class': 'form-select'}),
         'author': forms.Select(attrs={'class': 'form-select'}),
+        'image': forms.ClearableFileInput(attrs={
+            'class': 'form-control', 
+            'accept': 'image/*'
+        }),
         }
     
     def clean_code(self):
