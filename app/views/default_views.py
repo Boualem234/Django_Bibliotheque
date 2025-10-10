@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
 from app.models import Book, Author, Category
+from django.utils import translation
 
 class IndexView(View):
     def get(self, request):
@@ -21,4 +22,6 @@ class IndexView(View):
     
 class AboutView(View):
     def get(self, request):
+        current_lang = translation.get_language()
+        print("LANGUAGE ACTIVE:", current_lang)
         return render(request, 'about.html')

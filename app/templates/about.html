@@ -1,24 +1,21 @@
 {% extends 'base.html' %}
 
-{% block title %}À propos - Bibliothèque Boualem{% endblock %}
+{% load static i18n %}
+
+{% block title %}{% trans "À propos - Bibliothèque Boualem" %}{% endblock %}
 
 {% block content %}
-{% load static %}
-
 <div class="container my-5">
-
+  <p>Langue actuelle : {{ LANGUAGE_CODE }}</p>
   <!-- Section principale -->
   <div class="row justify-content-center">
     <div class="col-12 col-md-10 col-lg-8 text-center">
-      <h2 class="mb-4 text-black">À propos de Bibliothèque Boualem</h2>
+      <h2 class="mb-4 text-black">{% trans "À propos de Bibliothèque Boualem" %}</h2>
       <p class="text-black-50 mb-4">
-        Bibliothèque Boualem est une plateforme dédiée aux passionnés de lecture. 
-        Nous proposons un espace simple et agréable pour découvrir et explorer des livres 
-        classiques et contemporains.
+        {% trans "Bibliothèque Boualem est une plateforme dédiée aux passionnés de lecture. Nous proposons un espace simple et agréable pour découvrir et explorer des livres classiques et contemporains." %}
       </p>
       <p class="text-black-50 mb-4">
-        Notre objectif est de créer une expérience conviviale où chaque lecteur peut trouver 
-        son livre préféré et enrichir sa culture littéraire.
+        {% trans "Notre objectif est de créer une expérience conviviale où chaque lecteur peut trouver son livre préféré et enrichir sa culture littéraire." %}
       </p>
     </div>
   </div>
@@ -27,25 +24,24 @@
   <div class="row mt-5 text-center">
     <div class="col-12 col-md-4 mb-4">
       <i class="fas fa-book fa-3x text-black mb-3"></i>
-      <h5 class="fw-bold text-black">Collections riches</h5>
-      <p class="text-black-50">Des milliers de titres, du classique aux nouveautés.</p>
+      <h5 class="fw-bold text-black">{% trans "Collections riches" %}</h5>
+      <p class="text-black-50">{% trans "Des milliers de titres, du classique aux nouveautés." %}</p>
     </div>
     <div class="col-12 col-md-4 mb-4">
       <i class="fas fa-users fa-3x text-black mb-3"></i>
-      <h5 class="fw-bold text-black">Communauté</h5>
-      <p class="text-black-50">Rejoignez des lecteurs passionnés et échangez vos avis.</p>
+      <h5 class="fw-bold text-black">{% trans "Communauté" %}</h5>
+      <p class="text-black-50">{% trans "Rejoignez des lecteurs passionnés et échangez vos avis." %}</p>
     </div>
     <div class="col-12 col-md-4 mb-4">
       <i class="fas fa-lightbulb fa-3x text-black mb-3"></i>
-      <h5 class="fw-bold text-black">Découverte</h5>
-      <p class="text-black-50">Explorez de nouveaux horizons littéraires facilement.</p>
+      <h5 class="fw-bold text-black">{% trans "Découverte" %}</h5>
+      <p class="text-black-50">{% trans "Explorez de nouveaux horizons littéraires facilement." %}</p>
     </div>
 
     <div class="text-center mt-5">
-      <img src="{% static 'img/bib_boua.png' %}" alt="Bibliothèque" class="img-fluid rounded shadow-sm" style="max-width: 200px;">
+      <img src="{% static 'img/bib_boua.png' %}" alt="{% trans 'Bibliothèque' %}" class="img-fluid rounded shadow-sm" style="max-width: 200px;">
     </div>
   </div>
 
 </div>
-
 {% endblock %}
