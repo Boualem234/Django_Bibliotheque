@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Django Bibliotheque\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-10 21:57-0400\n"
+"POT-Creation-Date: 2025-10-10 22:19-0400\n"
 "PO-Revision-Date: 2025-10-10 19:15+0000\n"
 "Last-Translator: Django Translator <translator@example.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -384,6 +384,10 @@ msgstr "Previous Page"
 #: .\app\templates\app\includes\pagination_section.html:42
 msgid "Précédent"
 msgstr "Previous"
+
+#: .\app\templates\app\includes\pagination_section.html:59
+msgid "Aller à la page"
+msgstr "Go to page"
 
 #: .\app\templates\app\includes\pagination_section.html:72
 msgid "Page suivante"
