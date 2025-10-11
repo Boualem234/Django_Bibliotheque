@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Django Bibliotheque\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-10 21:18-0400\n"
+"POT-Creation-Date: 2025-10-10 21:57-0400\n"
 "PO-Revision-Date: 2025-10-10 19:15+0000\n"
 "Last-Translator: Django Translator <translator@example.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -156,10 +156,8 @@ msgid "Bibliothèque"
 msgstr "Library"
 
 #: .\app\templates\app\author\author_confirm_delete.html:3
-#, fuzzy
-#| msgid "Ajouter un auteur"
 msgid "Supprimer un auteur"
-msgstr "Add Author"
+msgstr "Delete Author"
 
 #: .\app\templates\app\author\author_confirm_delete.html:11
 #: .\app\templates\app\book\book_confirm_delete.html:11
@@ -182,6 +180,7 @@ msgstr "Confirm Deletion"
 #: .\app\templates\app\category\category_confirm_delete.html:24
 #: .\member_app\templates\member_app\login.html:18
 #: .\member_app\templates\member_app\password_edit.html:18
+#: .\member_app\templates\member_app\user_create.html:18
 #: .\member_app\templates\member_app\user_edit.html:20
 msgid "Annuler"
 msgstr "Cancel"
@@ -197,10 +196,8 @@ msgid "Nom"
 msgstr "Name"
 
 #: .\app\templates\app\author\author_details.html:21
-#, fuzzy
-#| msgid "Liste des auteurs"
 msgid "Retour à la liste des auteurs"
-msgstr "Authors List"
+msgstr "Back to authors list"
 
 #: .\app\templates\app\author\author_form.html:3
 #: .\app\templates\app\category\category_form.html:3
@@ -544,6 +541,7 @@ msgstr "Username"
 
 #: .\member_app\forms.py:16 .\member_app\forms.py:73
 #: .\member_app\templates\member_app\password_edit.html:3
+#: .\member_app\templates\member_app\password_edit_success.html:3
 msgid "Mot de passe"
 msgstr "Password"
 
@@ -581,23 +579,39 @@ msgstr "Log in"
 
 #: .\member_app\templates\member_app\password_edit.html:10
 #: .\member_app\templates\member_app\user_edit.html:18
-#, fuzzy
-#| msgid "Confirmer le mot de passe"
 msgid "Modifier votre mot de passe"
-msgstr "Confirm Password"
+msgstr "Change your password"
 
 #: .\member_app\templates\member_app\password_edit.html:19
 #: .\member_app\templates\member_app\user_edit.html:21
 msgid "Confirmer"
 msgstr "Confirm"
 
+#: .\member_app\templates\member_app\password_edit_success.html:10
+msgid "Mot de passe modifié avec succès !"
+msgstr "Password successfully updated!"
+
+#: .\member_app\templates\member_app\password_edit_success.html:13
+msgid "Continuer"
+msgstr "Continue"
+
+#: .\member_app\templates\member_app\user_create.html:3
+msgid "Inscription"
+msgstr "Registration"
+
+#: .\member_app\templates\member_app\user_create.html:10
+msgid "Inscrivez-vous dès maintenant"
+msgstr "Sign up now"
+
+#: .\member_app\templates\member_app\user_create.html:19
+msgid "S'inscrire"
+msgstr "Sign up"
+
 #: .\member_app\templates\member_app\user_edit.html:3
 msgid "Votre compte"
 msgstr "Your Account"
 
 #: .\member_app\templates\member_app\user_edit.html:10
-#, fuzzy
-#| msgid "Confirmation de suppression"
 msgid "Vos informations de compte"
 msgstr "Your account information"
 

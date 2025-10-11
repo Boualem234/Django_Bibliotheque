@@ -91,19 +91,14 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // trouver le champ image 
     const imageInput = document.querySelector('input[type="file"][name="image"]') || 
                       document.querySelector('input[id$="image"]') || 
                       document.querySelector('input[id*="image"]');
-    
-    console.log('Champ image trouvé:', imageInput); 
-    
+
     if (imageInput) {
         imageInput.addEventListener('change', function(e) {
             previewImage(this);
         });
-    } else {
-        console.log('Aucun champ image trouvé!');
     }
 });
 
