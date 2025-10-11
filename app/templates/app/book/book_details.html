@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block title %}{{ book.title }} - BibliBoua{% endblock %}
 
 {% block content %}
@@ -35,48 +36,48 @@
                 <div class="book-meta">
                     <div class="meta-item">
                         <i class="fas fa-barcode me-2"></i>
-                        <span class="meta-label">Code:</span>
+                        <span class="meta-label">{% trans "Code" %}:</span>
                         <span class="meta-value">{{ book.code }}</span>
                     </div>
                     
                     <div class="meta-item">
                         <i class="fas fa-calendar me-2"></i>
-                        <span class="meta-label">Publication:</span>
+                        <span class="meta-label">{% trans "Publication" %}:</span>
                         <span class="meta-value">{{ book.date }}</span>
                     </div>
                     
                     <div class="meta-item">
                         <i class="fas fa-bookmark me-2"></i>
-                        <span class="meta-label">Édition:</span>
+                        <span class="meta-label">{% trans "Édition" %}:</span>
                         <span class="meta-value">{{ book.edition }}</span>
                     </div>
                     
                     <div class="meta-item price-item">
                         <i class="fas fa-tag me-2"></i>
-                        <span class="meta-label">Prix:</span>
+                        <span class="meta-label">{% trans "Prix" %}:</span>
                         <span class="price">${{ book.price }}</span>
                     </div>
                 </div>
                 
                 <div class="summary-section">
                     <h5 class="summary-title">
-                        <i class="fas fa-align-left me-2"></i>Résumé
+                        <i class="fas fa-align-left me-2"></i>{% trans "Résumé" %}
                     </h5>
                     <p class="summary-text">{{ book.summary }}</p>
                 </div>
                 
                 <div class="action-buttons">
                     <a href="{% url 'book_list' %}" class="btn btn-outline-primary">
-                        <i class="fas fa-arrow-left me-2"></i>Retour à la liste
+                        <i class="fas fa-arrow-left me-2"></i>{% trans "Retour à la liste" %}
                     </a>
                     {% if perms.app.change_book %}
                         <a href="{% url 'edit_book' book.id %}" class="btn btn-primary">
-                            <i class="fas fa-edit me-2"></i>Modifier
+                            <i class="fas fa-edit me-2"></i>{% trans "Modifier" %}
                         </a>
                     {% endif %}
                     {% if perms.app.delete_book %}
                         <a href="{% url 'del_book' book.id %}" class="btn btn-outline-danger">
-                            <i class="fas fa-trash me-2"></i>Supprimer
+                            <i class="fas fa-trash me-2"></i>{% trans "Supprimer" %}
                         </a>
                     {% endif %}
                 </div>

@@ -4,6 +4,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic.base import View
+from django.utils.translation import gettext_lazy as _
 
 from ..models import Author
 from ..forms import AuthorForm
@@ -33,7 +34,7 @@ class AddAuthorView(PermissionRequiredMixin, View):
 
     def get(self, request):
         context = {
-            'action_text': 'Ajouter',
+            'action_text': _('Ajouter'),
             'form': AuthorForm()
         }
         return render(request, self.template_name, context)
@@ -50,7 +51,7 @@ class AddAuthorView(PermissionRequiredMixin, View):
             return redirect("author_list")
 
         context = {
-            'action_text': 'Ajouter',
+            'action_text': _('Ajouter'),
             'form': form
         }
         return render(request, self.template_name, context)
@@ -62,7 +63,7 @@ class EditAuthorView(PermissionRequiredMixin, View):
     def get(self, request, pk):
         author = get_object_or_404(Author, id=pk)
         context = {
-            'action_text': 'Modifier',
+            'action_text': _('Modifier'),
             'form': AuthorForm(instance=author)
         }
         return render(request, self.template_name, context)
@@ -80,7 +81,7 @@ class EditAuthorView(PermissionRequiredMixin, View):
             return redirect("author_list")
         
         context = {
-            'action_text': 'Modifier',
+            'action_text': _('Modifier'),
             'form': form
         }
         return render(request, self.template_name, context)

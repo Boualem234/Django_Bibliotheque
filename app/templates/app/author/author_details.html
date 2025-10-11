@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
-{% block title %}Détails de l'auteur{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Détails de l'auteur" %}{% endblock %}
 
 {% block content %}
 {% load static %}
 
 <div class="container my-5" style="max-width: 600px;">
-    <h2 class="mb-4 text-primary"><i class="fas fa-user me-2"></i>Détails de l'auteur</h2>
+    <h2 class="mb-4 text-primary"><i class="fas fa-user me-2"></i>{% trans "Détails de l'auteur" %}</h2>
 
     <div class="card shadow-sm">
         <div class="card-body">
-            <p class="mb-2"><strong>Prénom:</strong> {{ author.first_name }}</p>
-            <p class="mb-2"><strong>Nom:</strong> {{ author.last_name }}</p>
-            <p class="mb-2"><strong>Date de naissance:</strong> {{ author.birth_date }}</p>
-            <p class="mb-2"><strong>Nationalité:</strong> {{ author.nationality }}</p>
+            <p class="mb-2"><strong>{% trans "Prénom" %}:</strong> {{ author.first_name }}</p>
+            <p class="mb-2"><strong>{% trans "Nom" %}:</strong> {{ author.last_name }}</p>
+            <p class="mb-2"><strong>{% trans "Date de naissance" %}:</strong> {{ author.birth_date }}</p>
+            <p class="mb-2"><strong>{% trans "Nationalité" %}:</strong> {{ author.nationality }}</p>
         </div>
     </div>
 
     <a href="{% url 'author_list' %}" class="btn btn-outline-secondary mt-4">
-        <i class="fas fa-arrow-left me-2"></i>Retour à la liste des auteurs
+        <i class="fas fa-arrow-left me-2"></i>{% trans "Retour à la liste des auteurs" %}
     </a>
 </div>
 

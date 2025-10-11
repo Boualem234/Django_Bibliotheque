@@ -2,7 +2,7 @@ from modeltranslation.translator import translator, TranslationOptions
 from .models import Author, Category, Book
 
 class BookTranslationOptions(TranslationOptions):
-    fields = ('title', 'summary',)
+    fields = ('title', 'summary', 'edition')
 
 translator.register(Book, BookTranslationOptions)
 

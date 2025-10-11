@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
-{% block title %}Liste des auteurs{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Liste des auteurs" %}{% endblock %}
 
 {% block content %}
 {% load static %}
 
 <div class="container my-5">
-    <h2 class="mb-4 text-primary"><i class="fas fa-users me-2"></i>Liste des auteurs</h2>
+    <h2 class="mb-4 text-primary"><i class="fas fa-users me-2"></i>{% trans "Liste des auteurs" %}</h2>
 
 
     {% if perms.app.add_author %}
     <div class="mb-4">
         <a href="{% url 'add_author' %}" class="btn btn-primary">
-            <i class="fas fa-user-plus me-2"></i>Ajouter un auteur
+            <i class="fas fa-user-plus me-2"></i>{% trans "Ajouter un auteur" %}
         </a>
     </div>
     {% endif %}
@@ -24,17 +25,17 @@
             </div>
             <div class="btn-group" role="group">
                 <a href="{% url 'author_details' author.id %}" class="btn btn-outline-info btn-sm">
-                    <i class="fas fa-eye me-1"></i>Voir
+                    <i class="fas fa-eye me-1"></i>{% trans "Voir" %}
                 </a>
 
                 {% if perms.app.change_author %}
                 <a href="{% url 'edit_author' author.id %}" class="btn btn-outline-warning btn-sm">
-                    <i class="fas fa-edit me-1"></i>Modifier
+                    <i class="fas fa-edit me-1"></i>{% trans "Modifier" %}
                 </a>
                 {% endif %}
                 {% if perms.app.delete_author %}
                 <a href="{% url 'del_author' author.id %}" class="btn btn-outline-danger btn-sm">
-                    <i class="fas fa-trash-alt me-1"></i>Supprimer
+                    <i class="fas fa-trash-alt me-1"></i>{% trans "Supprimer" %}
                 </a>
                 {% endif %}
 
@@ -42,7 +43,7 @@
             </div>
         </li>
         {% empty %}
-        <li class="list-group-item text-muted">Aucun auteur disponible.</li>
+        <li class="list-group-item text-muted">{% trans "Aucun auteur disponible." %}</li>
         {% endfor %}
     </ul>
     {% include 'app/includes/pagination_section.html' with page_items=page_authors %}

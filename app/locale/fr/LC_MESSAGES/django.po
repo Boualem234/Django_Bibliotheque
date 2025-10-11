@@ -1,0 +1,482 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-10 19:08-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\app\templates\about.html:5
+#, fuzzy
+#| msgid "Bibliothèque Boualem"
+msgid "À propos - Bibliothèque Boualem"
+msgstr "Bibliothèque Boualem"
+
+#: .\app\templates\about.html:13
+#, fuzzy
+#| msgid "Bibliothèque Boualem"
+msgid "À propos de Bibliothèque Boualem"
+msgstr "Bibliothèque Boualem"
+
+#: .\app\templates\about.html:15
+msgid ""
+"Bibliothèque Boualem est une plateforme dédiée aux passionnés de lecture. "
+"Nous proposons un espace simple et agréable pour découvrir et explorer des "
+"livres classiques et contemporains."
+msgstr ""
+"Bibliothèque Boualem est une plateforme dédiée aux passionnés de lecture. "
+"Nous proposons un espace simple et agréable pour découvrir et explorer des "
+"livres classiques et contemporains."
+
+#: .\app\templates\about.html:18
+msgid ""
+"Notre objectif est de créer une expérience conviviale où chaque lecteur peut "
+"trouver son livre préféré et enrichir sa culture littéraire."
+msgstr ""
+"Notre objectif est de créer une expérience conviviale où chaque lecteur peut "
+"trouver son livre préféré et enrichir sa culture littéraire."
+
+#: .\app\templates\about.html:27
+msgid "Collections riches"
+msgstr "Collections riches"
+
+#: .\app\templates\about.html:28
+msgid "Des milliers de titres, du classique aux nouveautés."
+msgstr "Des milliers de titres, du classique aux nouveautés."
+
+#: .\app\templates\about.html:32
+msgid "Communauté"
+msgstr "Communauté"
+
+#: .\app\templates\about.html:33
+msgid "Rejoignez des lecteurs passionnés et échangez vos avis."
+msgstr "Rejoignez des lecteurs passionnés et échangez vos avis."
+
+#: .\app\templates\about.html:37
+msgid "Découverte"
+msgstr "Découverte"
+
+#: .\app\templates\about.html:38
+msgid "Explorez de nouveaux horizons littéraires facilement."
+msgstr "Explorez de nouveaux horizons littéraires facilement."
+
+#: .\app\templates\about.html:42
+#, fuzzy
+#| msgid "Bibliothèque Boualem"
+msgid "Bibliothèque"
+msgstr "Bibliothèque Boualem"
+
+#: .\app\templates\app\author\author_confirm_delete.html:3
+#, fuzzy
+#| msgid "Ajouter un auteur"
+msgid "Supprimer un auteur"
+msgstr "Ajouter un auteur"
+
+#: .\app\templates\app\author\author_confirm_delete.html:11
+#: .\app\templates\app\book\book_confirm_delete.html:11
+#: .\app\templates\app\category\category_confirm_delete.html:11
+msgid "Confirmation de suppression"
+msgstr ""
+
+#: .\app\templates\app\author\author_confirm_delete.html:14
+msgid "Êtes-vous sûr de vouloir supprimer cet auteur ?"
+msgstr ""
+
+#: .\app\templates\app\author\author_confirm_delete.html:20
+#: .\app\templates\app\book\book_confirm_delete.html:20
+#: .\app\templates\app\category\category_confirm_delete.html:20
+msgid "Confirmer la suppression"
+msgstr ""
+
+#: .\app\templates\app\author\author_confirm_delete.html:24
+#: .\app\templates\app\book\book_confirm_delete.html:24
+#: .\app\templates\app\category\category_confirm_delete.html:24
+msgid "Annuler"
+msgstr ""
+
+#: .\app\templates\app\author\author_details.html:3
+#: .\app\templates\app\author\author_details.html:9
+#, fuzzy
+#| msgid "Liste des auteurs"
+msgid "Détails de l'auteur"
+msgstr "Liste des auteurs"
+
+#: .\app\templates\app\author\author_details.html:13
+msgid "Prénom"
+msgstr ""
+
+#: .\app\templates\app\author\author_details.html:14
+#: .\app\templates\app\category\cat_details.html:13
+msgid "Nom"
+msgstr ""
+
+#: .\app\templates\app\author\author_details.html:15
+msgid "Date de naissance"
+msgstr ""
+
+#: .\app\templates\app\author\author_details.html:16
+msgid "Nationalité"
+msgstr ""
+
+#: .\app\templates\app\author\author_details.html:21
+#, fuzzy
+#| msgid "Liste des auteurs"
+msgid "Retour à la liste des auteurs"
+msgstr "Liste des auteurs"
+
+#: .\app\templates\app\author\author_form.html:3
+#: .\app\templates\app\category\category_form.html:3
+msgid "Démo Django"
+msgstr ""
+
+#: .\app\templates\app\author\author_form.html:9
+#, fuzzy
+#| msgid "Ajouter un auteur"
+msgid "un auteur"
+msgstr "Ajouter un auteur"
+
+#: .\app\templates\app\author\author_form.html:17
+#: .\app\templates\app\book\book_form.html:47
+#: .\app\templates\app\category\category_form.html:17
+msgid "Retour"
+msgstr ""
+
+#: .\app\templates\app\author\author_list.html:3
+#: .\app\templates\app\author\author_list.html:9
+msgid "Liste des auteurs"
+msgstr "Liste des auteurs"
+
+#: .\app\templates\app\author\author_list.html:15
+msgid "Ajouter un auteur"
+msgstr "Ajouter un auteur"
+
+#: .\app\templates\app\author\author_list.html:28
+#: .\app\templates\app\book\book_list.html:57
+#: .\app\templates\app\category\cat_list.html:27
+msgid "Voir"
+msgstr "Voir"
+
+#: .\app\templates\app\author\author_list.html:33
+#: .\app\templates\app\book\book_details.html:75
+#: .\app\templates\app\book\book_list.html:61
+#: .\app\templates\app\category\cat_list.html:32
+msgid "Modifier"
+msgstr "Modifier"
+
+#: .\app\templates\app\author\author_list.html:38
+#: .\app\templates\app\book\book_details.html:80
+#: .\app\templates\app\book\book_list.html:66
+#: .\app\templates\app\category\cat_list.html:37
+msgid "Supprimer"
+msgstr "Supprimer"
+
+#: .\app\templates\app\author\author_list.html:46
+msgid "Aucun auteur disponible."
+msgstr "Aucun auteur disponible."
+
+#: .\app\templates\app\book\book_confirm_delete.html:3
+#, fuzzy
+#| msgid "Ajouter un livre"
+msgid "Supprimer un livre"
+msgstr "Ajouter un livre"
+
+#: .\app\templates\app\book\book_confirm_delete.html:14
+msgid "Êtes-vous sûr de vouloir supprimer ce livre ?"
+msgstr ""
+
+#: .\app\templates\app\book\book_details.html:39
+msgid "Code"
+msgstr ""
+
+#: .\app\templates\app\book\book_details.html:45
+msgid "Publication"
+msgstr ""
+
+#: .\app\templates\app\book\book_details.html:51
+msgid "Édition"
+msgstr ""
+
+#: .\app\templates\app\book\book_details.html:57
+msgid "Prix"
+msgstr ""
+
+#: .\app\templates\app\book\book_details.html:64
+msgid "Résumé"
+msgstr ""
+
+#: .\app\templates\app\book\book_details.html:71
+msgid "Retour à la liste"
+msgstr ""
+
+#: .\app\templates\app\book\book_form.html:3
+#: .\app\templates\app\book\book_form.html:14
+#, fuzzy
+#| msgid "Ajouter un livre"
+msgid "un livre"
+msgstr "Ajouter un livre"
+
+#: .\app\templates\app\book\book_form.html:28
+msgid "Aperçu de l'image"
+msgstr ""
+
+#: .\app\templates\app\book\book_form.html:32
+msgid "Aperçu"
+msgstr ""
+
+#: .\app\templates\app\book\book_form.html:33
+msgid "Image actuelle"
+msgstr ""
+
+#: .\app\templates\app\book\book_form.html:37
+msgid "Aucune image"
+msgstr ""
+
+#: .\app\templates\app\book\book_list.html:3
+#: .\app\templates\app\book\book_list.html:9
+msgid "Liste des livres"
+msgstr "Liste des livres"
+
+#: .\app\templates\app\book\book_list.html:19
+msgid "Rechercher par titre, auteur ou catégorie..."
+msgstr "Rechercher par titre, auteur ou catégorie..."
+
+#: .\app\templates\app\book\book_list.html:35
+msgid "Ajouter un livre"
+msgstr "Ajouter un livre"
+
+#: .\app\templates\app\book\book_list.html:44
+#, python-format
+msgid ""
+"Résultats pour: <strong>\"%(search_query)s\"</strong>\n"
+"        (%(page_books.paginator.count)s "
+"livre%(page_books.paginator.count|pluralize)s "
+"trouvé%(page_books.paginator.count|pluralize)s)"
+msgstr ""
+"Résultats pour: <strong>\"%(search_query)s\"</strong>\n"
+"        (%(page_books.paginator.count)s "
+"livre%(page_books.paginator.count|pluralize)s "
+"trouvé%(page_books.paginator.count|pluralize)s)"
+
+#: .\app\templates\app\book\book_list.html:72
+msgid "Aucun livre disponible."
+msgstr "Aucun livre disponible."
+
+#: .\app\templates\app\category\cat_details.html:3
+#: .\app\templates\app\category\cat_details.html:9
+#, fuzzy
+#| msgid "Liste des catégories"
+msgid "Détails de la catégorie"
+msgstr "Liste des catégories"
+
+#: .\app\templates\app\category\cat_details.html:18
+#, fuzzy
+#| msgid "Liste des catégories"
+msgid "Retour à la liste des catégories"
+msgstr "Liste des catégories"
+
+#: .\app\templates\app\category\cat_list.html:3
+#: .\app\templates\app\category\cat_list.html:9
+msgid "Liste des catégories"
+msgstr "Liste des catégories"
+
+#: .\app\templates\app\category\cat_list.html:14
+msgid "Ajouter une catégorie"
+msgstr "Ajouter une catégorie"
+
+#: .\app\templates\app\category\cat_list.html:43
+msgid "Aucune catégorie disponible."
+msgstr "Aucune catégorie disponible."
+
+#: .\app\templates\app\category\category_confirm_delete.html:3
+#, fuzzy
+#| msgid "Ajouter une catégorie"
+msgid "Supprimer une catégorie"
+msgstr "Ajouter une catégorie"
+
+#: .\app\templates\app\category\category_confirm_delete.html:14
+msgid "Êtes-vous sûr de vouloir supprimer cette catégorie ?"
+msgstr ""
+
+#: .\app\templates\app\category\category_form.html:9
+#, fuzzy
+#| msgid "Ajouter une catégorie"
+msgid "une catégorie"
+msgstr "Ajouter une catégorie"
+
+#: .\app\templates\app\includes\pagination_section.html:8
+msgid "résultat"
+msgstr ""
+
+#: .\app\templates\app\includes\pagination_section.html:8
+msgid "trouvé"
+msgstr ""
+
+#: .\app\templates\app\includes\pagination_section.html:12
+msgid "Page"
+msgstr ""
+
+#: .\app\templates\app\includes\pagination_section.html:12
+#: .\app\templates\app\includes\pagination_section.html:103
+msgid "sur"
+msgstr ""
+
+#: .\app\templates\app\includes\pagination_section.html:18
+msgid "Navigation des pages"
+msgstr ""
+
+#: .\app\templates\app\includes\pagination_section.html:24
+msgid "Première page"
+msgstr ""
+
+#: .\app\templates\app\includes\pagination_section.html:35
+msgid "Page précédente"
+msgstr ""
+
+#: .\app\templates\app\includes\pagination_section.html:36
+#: .\app\templates\app\includes\pagination_section.html:42
+msgid "Précédent"
+msgstr ""
+
+#: .\app\templates\app\includes\pagination_section.html:72
+msgid "Page suivante"
+msgstr ""
+
+#: .\app\templates\app\includes\pagination_section.html:73
+#: .\app\templates\app\includes\pagination_section.html:79
+msgid "Suivant"
+msgstr ""
+
+#: .\app\templates\app\includes\pagination_section.html:88
+msgid "Dernière page"
+msgstr ""
+
+#: .\app\templates\app\includes\pagination_section.html:101
+msgid "Affichage"
+msgstr ""
+
+#: .\app\templates\index.html:4 .\templates\base.html:41
+msgid "Accueil"
+msgstr "Accueil"
+
+#: .\app\templates\index.html:23
+msgid "Bibliothèque Numérique"
+msgstr "Bibliothèque Numérique"
+
+#: .\app\templates\index.html:27
+msgid "Bienvenue sur"
+msgstr "Bienvenue sur"
+
+#: .\app\templates\index.html:29
+msgid "Découvrez l'avenir de la lecture numérique"
+msgstr "Découvrez l'avenir de la lecture numérique"
+
+#: .\app\templates\index.html:31
+#, python-format
+msgid ""
+"\n"
+"              %(books)s livre • %(authors_count)s auteur • "
+"%(categories_count)s catégorie\n"
+"            "
+msgid_plural ""
+"\n"
+"              %(books)s livres • %(authors_count)s auteurs • "
+"%(categories_count)s catégories\n"
+"            "
+msgstr[0] ""
+"\n"
+"              %(books)s livre • %(authors_count)s auteur • "
+"%(categories_count)s catégorie\n"
+"            "
+msgstr[1] ""
+"\n"
+"              %(books)s livres • %(authors_count)s auteurs • "
+"%(categories_count)s catégories\n"
+"            "
+
+#: .\app\templates\index.html:45
+msgid "Rechercher un livre"
+msgstr "Rechercher un livre"
+
+#: .\app\templates\index.html:51
+msgid "Titre, auteur, catégorie..."
+msgstr "Titre, auteur, catégorie..."
+
+#: .\app\templates\index.html:57
+msgid "Rechercher"
+msgstr "Rechercher"
+
+#: .\app\templates\index.html:67
+msgid "Explorer"
+msgstr "Explorer"
+
+#: .\app\templates\index.html:70
+msgid "Favoris"
+msgstr "Favoris"
+
+#: .\app\templates\index.html:85
+msgid "Livres en Vedette"
+msgstr ""
+
+#: .\app\templates\index.html:87
+msgid "Découvrez nos coups de cœur sélectionnés spécialement pour vous"
+msgstr ""
+
+#: .\project\settings.py:115
+msgid "Français"
+msgstr "Français"
+
+#: .\project\settings.py:116
+msgid "English"
+msgstr "Anglais"
+
+#: .\templates\base.html:11 .\templates\base.html:26
+msgid "Bibliothèque Boualem"
+msgstr "Bibliothèque Boualem"
+
+#: .\templates\base.html:27
+msgid "Canada"
+msgstr "Canada"
+
+#: .\templates\base.html:42
+msgid "À propos"
+msgstr "À propos"
+
+#: .\templates\base.html:43
+msgid "Livres"
+msgstr "Livres"
+
+#: .\templates\base.html:44
+msgid "Catégories"
+msgstr "Catégories"
+
+#: .\templates\base.html:45
+msgid "Auteurs"
+msgstr "Auteurs"
+
+#: .\templates\base.html:74
+msgid "PROFIL"
+msgstr "PROFIL"
+
+#: .\templates\base.html:75
+msgid "SE DÉCONNECTER"
+msgstr "SE DÉCONNECTER"
+
+#: .\templates\base.html:77
+msgid "CRÉER UN COMPTE"
+msgstr "CRÉER UN COMPTE"
+
+#: .\templates\base.html:78
+msgid "SE CONNECTER"
+msgstr "SE CONNECTER"

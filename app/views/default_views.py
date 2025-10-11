@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.base import View
 from app.models import Book, Author, Category
 from django.utils import translation
+from django.http import HttpResponseRedirect
 
 class IndexView(View):
     def get(self, request):

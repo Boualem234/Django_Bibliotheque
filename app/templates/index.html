@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Accueil - BibliBoua{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Accueil" %} - BibliBoua{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -19,14 +20,20 @@
           
           <div class="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-pill px-4 py-2 mb-4">
             <i class="fas fa-book-reader text-primary me-2"></i>
-            <span class="text-primary fw-semibold">Bibliothèque Numérique</span>
+            <span class="text-primary fw-semibold">{% trans "Bibliothèque Numérique" %}</span>
           </div>
           
           <h1 class="display-3 fw-bold mb-4 animate-fade-in text-dark">
-            Bienvenue sur <span class="text-primary">BibliBoua</span>
+            {% trans "Bienvenue sur" %} <span class="text-primary">BibliBoua</span>
           </h1>
-          <p class="lead mb-4 fs-4 text-muted">Découvrez l'avenir de la lecture numérique</p>
-          <p class="mb-5 fs-5 text-muted">{{ books_count }} livres • {{ authors_count }} auteurs • {{ categories_count }} catégories</p>
+          <p class="lead mb-4 fs-4 text-muted">{% trans "Découvrez l'avenir de la lecture numérique" %}</p>
+          <p class="mb-5 fs-5 text-muted">
+            {% blocktrans count books=books_count %}
+              {{ books }} livre • {{ authors_count }} auteur • {{ categories_count }} catégorie
+            {% plural %}
+              {{ books }} livres • {{ authors_count }} auteurs • {{ categories_count }} catégories
+            {% endblocktrans %}
+          </p>
           
           <!-- Barre de recherche -->
           <div class="card border-0 shadow-lg rounded-4 mx-auto mb-5" style="max-width: 600px;">
@@ -35,19 +42,19 @@
                 <div class="row g-3 align-items-end">
                   <div class="col-md-8">
                     <label class="form-label fw-semibold text-dark mb-2">
-                      <i class="fas fa-search me-2 text-primary"></i>Rechercher un livre
+                      <i class="fas fa-search me-2 text-primary"></i>{% trans "Rechercher un livre" %}
                     </label>
                     <input 
                       type="text" 
                       name="search" 
                       class="form-control form-control-lg border-2 rounded-3" 
-                      placeholder="Titre, auteur, catégorie..."
+                      placeholder="{% trans 'Titre, auteur, catégorie...' %}"
                       style="border-color: #e3f2fd; background: #fafafa;"
                     >
                   </div>
                   <div class="col-md-4">
                     <button type="submit" class="btn btn-primary btn-lg w-100 rounded-3 fw-semibold">
-                      <i class="fas fa-search me-2"></i>Rechercher
+                      <i class="fas fa-search me-2"></i>{% trans "Rechercher" %}
                     </button>
                   </div>
                 </div>
@@ -57,10 +64,10 @@
           
           <div class="hero-buttons">
             <a href="{% url 'book_list' %}" class="btn btn-primary btn-lg px-5 py-3 me-3 rounded-pill shadow-sm">
-              <i class="fas fa-compass me-2"></i>Explorer
+              <i class="fas fa-compass me-2"></i>{% trans "Explorer" %}
             </a>
             <a href="#featured" class="btn btn-outline-primary btn-lg px-5 py-3 rounded-pill">
-              <i class="fas fa-heart me-2"></i>Favoris
+              <i class="fas fa-heart me-2"></i>{% trans "Favoris" %}
             </a>
           </div>
         </div>
@@ -75,9 +82,9 @@
       <div class="col-12 text-center mb-5">
         <h2 class="display-5 fw-bold text-dark mb-3">
           <i class="fas fa-star text-warning me-3"></i>
-          Livres en Vedette
+          {% trans "Livres en Vedette" %}
         </h2>
-        <p class="lead text-muted">Découvrez nos coups de cœur sélectionnés spécialement pour vous</p>
+        <p class="lead text-muted">{% trans "Découvrez nos coups de cœur sélectionnés spécialement pour vous" %}</p>
       </div>
     </div>
 
@@ -118,7 +125,7 @@
       <div class="col-12 text-center">
         <div class="alert alert-info border-0 rounded-4">
           <i class="fas fa-info-circle me-2"></i>
-          Aucun livre en vedette disponible pour le moment.
+          {% trans "Aucun livre en vedette disponible pour le moment." %}
         </div>
       </div>
       {% endfor %}
@@ -132,8 +139,8 @@
     <div class="row align-items-center">
       <div class="col-lg-6">
         <div class="services-content">
-          <h2 class="display-6 fw-bold mb-4">L'avenir de la lecture est ici</h2>
-          <p class="lead mb-4">Découvrez une expérience de lecture révolutionnaire avec notre plateforme moderne et intuitive.</p>
+          <h2 class="display-6 fw-bold mb-4">{% trans "L'avenir de la lecture est ici" %}</h2>
+          <p class="lead mb-4">{% trans "Découvrez une expérience de lecture révolutionnaire avec notre plateforme moderne et intuitive." %}</p>
           
           <div class="service-features">
             <div class="feature-item d-flex align-items-center mb-3">
@@ -141,8 +148,8 @@
                 <i class="fas fa-cloud-download-alt"></i>
               </div>
               <div>
-                <h6 class="mb-1 fw-bold">Accès instantané</h6>
-                <p class="text-muted mb-0">Téléchargez et lisez vos livres en quelques secondes</p>
+                <h6 class="mb-1 fw-bold">{% trans "Accès instantané" %}</h6>
+                <p class="text-muted mb-0">{% trans "Téléchargez et lisez vos livres en quelques secondes" %}</p>
               </div>
             </div>
             
@@ -151,8 +158,8 @@
                 <i class="fas fa-sync-alt"></i>
               </div>
               <div>
-                <h6 class="mb-1 fw-bold">Synchronisation</h6>
-                <p class="text-muted mb-0">Retrouvez votre progression sur tous vos appareils</p>
+                <h6 class="mb-1 fw-bold">{% trans "Synchronisation" %}</h6>
+                <p class="text-muted mb-0">{% trans "Retrouvez votre progression sur tous vos appareils" %}</p>
               </div>
             </div>
             
@@ -161,14 +168,14 @@
                 <i class="fas fa-heart"></i>
               </div>
               <div>
-                <h6 class="mb-1 fw-bold">Recommandations</h6>
-                <p class="text-muted mb-0">Des suggestions personnalisées selon vos goûts</p>
+                <h6 class="mb-1 fw-bold">{% trans "Recommandations" %}</h6>
+                <p class="text-muted mb-0">{% trans "Des suggestions personnalisées selon vos goûts" %}</p>
               </div>
             </div>
           </div>
           
           <a href="{% url 'book_list' %}" class="btn btn-primary btn-lg px-4 rounded-pill">
-            <i class="fas fa-rocket me-2"></i>Commencer maintenant
+            <i class="fas fa-rocket me-2"></i>{% trans "Commencer maintenant" %}
           </a>
         </div>
       </div>
@@ -187,7 +194,7 @@
     <div class="row">
       <div class="col-lg-8">
         <div class="stats-content">
-          <h2 class="display-6 fw-bold mb-4 text-dark">Notre communauté grandissante</h2>
+          <h2 class="display-6 fw-bold mb-4 text-dark">{% trans "Notre communauté grandissante" %}</h2>
           <div class="row g-4">
             <div class="col-md-4 text-center">
               <div class="stat-card">
@@ -195,7 +202,7 @@
                   <i class="fas fa-book-open"></i>
                 </div>
                 <h3 class="stat-number">{{ books_count }}</h3>
-                <p class="stat-label">Livres disponibles</p>
+                <p class="stat-label">{% trans "Livres disponibles" %}</p>
               </div>
             </div>
             <div class="col-md-4 text-center">
@@ -204,7 +211,7 @@
                   <i class="fas fa-users"></i>
                 </div>
                 <h3 class="stat-number">{{ authors_count }}</h3>
-                <p class="stat-label">Auteurs référencés</p>
+                <p class="stat-label">{% trans "Auteurs référencés" %}</p>
               </div>
             </div>
             <div class="col-md-4 text-center">
@@ -213,7 +220,7 @@
                   <i class="fas fa-layer-group"></i>
                 </div>
                 <h3 class="stat-number">{{ categories_count }}</h3>
-                <p class="stat-label">Catégories</p>
+                <p class="stat-label">{% trans "Catégories" %}</p>
               </div>
             </div>
           </div>

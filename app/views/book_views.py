@@ -4,6 +4,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic.base import View
+from django.utils.translation import gettext_lazy as _
 
 from ..models import Book, Category, Author
 from ..forms import BookForm
@@ -49,7 +50,7 @@ class AddBookView(PermissionRequiredMixin, View):
 
     def get(self, request):
         context = {
-            'action_text': 'Ajouter',
+            'action_text': _('Ajouter'),
             'form': BookForm()
         }
         return render(request, self.template_name, context)
@@ -72,7 +73,7 @@ class AddBookView(PermissionRequiredMixin, View):
             return redirect("book_list")
         
         context = {
-            'action_text': 'Ajouter',
+            'action_text': _('Ajouter'),
             'form': form
         }
 
@@ -85,7 +86,7 @@ class EditBookView(View):
     def get(self, request, pk):
         book = get_object_or_404(Book, id=pk)
         context = {
-            'action_text': 'Modifier',
+            'action_text': _('Modifier'),
             'form': BookForm(instance=book)
         }
         return render(request, self.template_name, context)
@@ -109,7 +110,7 @@ class EditBookView(View):
             return redirect("book_list")
 
         context = {
-            'action_text': 'Modifier',
+            'action_text': _('Modifier'),
             'form': form
         }
 

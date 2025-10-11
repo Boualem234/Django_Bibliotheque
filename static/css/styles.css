@@ -1,9 +1,4 @@
 
-/* ==============================================
-   BASE STYLES - BibliBoua
-   ============================================== */
-
-/* Variables CSS */
 :root {
   --primary-color: #2196f3;
   --primary-dark: #1976d2;
@@ -209,6 +204,17 @@ body {
     text-align: center;
   }
   
+  /* Language Dropdown - Z-index élevé pour être au premier plan */
+  .navbar-nav .dropdown-menu {
+    z-index: 9999 !important;
+    position: absolute !important;
+  }
+  
+  .navbar-nav .dropdown {
+    position: relative;
+    z-index: 1000;
+  }
+
   /* Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;

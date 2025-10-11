@@ -148,5 +148,5 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
+    os.path.join(BASE_DIR, 'app', 'locale'),
 ]

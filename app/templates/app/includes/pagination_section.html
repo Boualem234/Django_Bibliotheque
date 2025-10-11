@@ -1,49 +1,50 @@
+{% load i18n %}
 {% if range_pages and range_pages.stop > 2 %}
 <div class="d-flex flex-column align-items-center mt-5 mb-4">
   <div class="pagination-info mb-3">
     <span class="badge bg-primary fs-6 px-3 py-2">
       <i class="fas fa-book-open me-2"></i>
       {% with count=page_items.paginator.count %}
-      {{ count }} résultat{{ count|pluralize }} trouvé{{ count|pluralize }}
+      {{ count }} {% trans "résultat" %}{{ count|pluralize }} {% trans "trouvé" %}{{ count|pluralize }}
       {% endwith %}
       {% if page_items.paginator.num_pages > 1 %}
       <span class="ms-2 text-white-50">
-        • Page {{ page_items.number }} sur {{ page_items.paginator.num_pages }}
+        • {% trans "Page" %} {{ page_items.number }} {% trans "sur" %} {{ page_items.paginator.num_pages }}
       </span>
       {% endif %}
     </span>
   </div>
 
-  <nav aria-label="Navigation des pages" class="pagination-nav">
+  <nav aria-label="{% trans 'Navigation des pages' %}" class="pagination-nav">
     <ul class="pagination pagination-lg shadow-sm border-0 mb-0">
       
       {% if page_items.has_previous and page_items.number > 2 %}
       <li class="page-item">
         <a href="?page=1" class="page-link border-0 text-primary" 
-           title="Première page" data-bs-toggle="tooltip">
+           title="{% trans 'Première page' %}" data-bs-toggle="tooltip">
           <i class="fas fa-angle-double-left"></i>
         </a>
       </li>
       {% endif %}
 
-      <!-- Bouton Précédent -->
+      <!-- previous button -->
       {% if page_items.has_previous %}
       <li class="page-item">
         <a href="?page={{ page_items.previous_page_number }}" 
            class="page-link border-0 text-primary px-4" 
-           title="Page précédente" data-bs-toggle="tooltip">
-          <i class="fas fa-chevron-left me-2"></i>Précédent
+           title="{% trans 'Page précédente' %}" data-bs-toggle="tooltip">
+          <i class="fas fa-chevron-left me-2"></i>{% trans "Précédent" %}
         </a>
       </li>
       {% else %}
       <li class="page-item disabled">
         <span class="page-link border-0 bg-light text-muted px-4">
-          <i class="fas fa-chevron-left me-2"></i>Précédent
+          <i class="fas fa-chevron-left me-2"></i>{% trans "Précédent" %}
         </span>
       </li>
       {% endif %}
 
-      <!-- numéros de pages -->
+      <!-- page numbers -->
       {% for i in range_pages %}
         {% if page_items.number == i %}
         <li class="page-item active">
@@ -63,19 +64,19 @@
         {% endif %}
       {% endfor %}
 
-      <!-- Bouton Suivant -->
+      <!-- NEXT button -->
       {% if page_items.has_next %}
       <li class="page-item">
         <a href="?page={{ page_items.next_page_number }}" 
            class="page-link border-0 text-primary px-4" 
-           title="Page suivante" data-bs-toggle="tooltip">
-          Suivant<i class="fas fa-chevron-right ms-2"></i>
+           title="{% trans 'Page suivante' %}" data-bs-toggle="tooltip">
+          {% trans "Suivant" %}<i class="fas fa-chevron-right ms-2"></i>
         </a>
       </li>
       {% else %}
       <li class="page-item disabled">
         <span class="page-link border-0 bg-light text-muted px-4">
-          Suivant<i class="fas fa-chevron-right ms-2"></i>
+          {% trans "Suivant" %}<i class="fas fa-chevron-right ms-2"></i>
         </span>
       </li>
       {% endif %}
@@ -84,7 +85,7 @@
       <li class="page-item">
         <a href="?page={{ page_items.paginator.num_pages }}" 
            class="page-link border-0 text-primary" 
-           title="Dernière page" data-bs-toggle="tooltip">
+           title="{% trans 'Dernière page' %}" data-bs-toggle="tooltip">
           <i class="fas fa-angle-double-right"></i>
         </a>
       </li>
@@ -97,9 +98,9 @@
   <div class="pagination-details mt-3">
     <small class="text-muted d-flex align-items-center">
       <i class="fas fa-info-circle me-2"></i>
-      Affichage 
+      {% trans "Affichage" %} 
       <strong class="mx-1">{{ page_items.start_index }} - {{ page_items.end_index }}</strong>
-      sur 
+      {% trans "sur" %} 
       <strong class="ms-1">{{ page_items.paginator.count }}</strong>
     </small>
   </div>

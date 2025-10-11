@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% block title %}{{ action_text }} un livre - BibliBoua{% endblock %}
+{% load i18n %}
+{% block title %}{{ action_text }} {% trans "un livre" %} - BibliBoua{% endblock %}
 
 {% block content %}
 {% load static %}
@@ -10,7 +11,7 @@
             <div class="card shadow-sm border-0 rounded-4">
                 <div class="card-header bg-primary text-white text-center rounded-top-4">
                     <h2 class="mb-0">
-                        <i class="fas fa-book me-2"></i>{{ action_text }} un livre
+                        <i class="fas fa-book me-2"></i>{{ action_text }} {% trans "un livre" %}
                     </h2>
                 </div>
                 <div class="card-body p-4">
@@ -24,16 +25,16 @@
                             <div class="col-md-4">
                                 <div class="image-preview-section">
                                     <h6 class="text-muted mb-3">
-                                        <i class="fas fa-image me-2"></i>Aperçu de l'image
+                                        <i class="fas fa-image me-2"></i>{% trans "Aperçu de l'image" %}
                                     </h6>
                                     <div id="imagePreview" class="image-preview-container">
                                         {% if form.instance.image %}
-                                            <img src="{{ form.instance.image.url }}" alt="Aperçu" class="preview-image">
-                                            <p class="text-muted small mt-2">Image actuelle</p>
+                                            <img src="{{ form.instance.image.url }}" alt="{% trans 'Aperçu' %}" class="preview-image">
+                                            <p class="text-muted small mt-2">{% trans "Image actuelle" %}</p>
                                         {% else %}
                                             <div class="no-image-placeholder">
                                                 <i class="fas fa-image fa-3x text-muted"></i>
-                                                <p class="text-muted small mt-2">Aucune image</p>
+                                                <p class="text-muted small mt-2">{% trans "Aucune image" %}</p>
                                             </div>
                                         {% endif %}
                                     </div>
@@ -43,7 +44,7 @@
 
                         <div class="d-flex justify-content-between mt-4">
                             <a href="{% url 'book_list' %}" class="btn btn-outline-secondary">
-                                <i class="fas fa-arrow-left me-2"></i>Retour
+                                <i class="fas fa-arrow-left me-2"></i>{% trans "Retour" %}
                             </a>
                             <button type="submit" class="btn btn-primary px-4">
                                 <i class="fas fa-save me-2"></i>{{ action_text }}

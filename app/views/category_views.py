@@ -4,6 +4,7 @@ from django.core.paginator import Paginator
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic.base import View
+from django.utils.translation import gettext_lazy as _
 
 from ..models import Category
 from ..forms import CategoryForm
@@ -33,7 +34,7 @@ class AddCategoryView(PermissionRequiredMixin, View):
 
     def get(self, request):
         context = {
-            'action_text': 'Ajouter',
+            'action_text': _('Ajouter'),
             'form': CategoryForm()
         }
         return render(request, self.template_name, context)
@@ -51,7 +52,7 @@ class AddCategoryView(PermissionRequiredMixin, View):
             return redirect("cat_list")
 
         context = {
-            'action_text': 'Ajouter',
+            'action_text': _('Ajouter'),
             'form': form
         }
         return render(request, self.template_name, context)
@@ -64,7 +65,7 @@ class EditCategoryView(View):
     def get(self, request, pk):
         category = get_object_or_404(Category, id=pk)
         context = {
-            'action_text': 'Modifier',
+            'action_text': _('Modifier'),
             'form': CategoryForm(instance=category)
         }
         return render(request, self.template_name, context)
@@ -82,7 +83,7 @@ class EditCategoryView(View):
             return redirect("cat_list")
         
         context = {
-            'action_text': 'Modifier',
+            'action_text': _('Modifier'),
             'form': form
         }
         return render(request, self.template_name, context)

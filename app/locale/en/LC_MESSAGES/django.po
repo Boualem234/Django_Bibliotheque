@@ -3,65 +3,644 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Django Bibliotheque\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-10 10:50-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2025-10-10 21:18-0400\n"
+"PO-Revision-Date: 2025-10-10 19:15+0000\n"
+"Last-Translator: Django Translator <translator@example.com>\n"
+"Language-Team: English <en@li.org>\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\app\forms.py:12 .\app\templates\app\author\author_list.html:38
+#: .\app\templates\app\book\book_details.html:80
+#: .\app\templates\app\book\book_list.html:66
+#: .\app\templates\app\category\cat_list.html:37
+msgid "Supprimer"
+msgstr "Delete"
+
+#: .\app\forms.py:13
+msgid "Actuellement"
+msgstr "Currently"
+
+#: .\app\forms.py:14
+msgid "Changer"
+msgstr "Change"
+
+#: .\app\forms.py:35
+msgid "Nom de la catégorie"
+msgstr "Category Name"
+
+#: .\app\forms.py:47
+msgid "Le nom de catégorie existe déjà"
+msgstr "This category name already exists"
+
+#: .\app\forms.py:66 .\app\templates\app\author\author_details.html:13
+#: .\member_app\forms.py:44 .\member_app\forms.py:67
+msgid "Prénom"
+msgstr "First Name"
+
+#: .\app\forms.py:67 .\member_app\forms.py:46 .\member_app\forms.py:69
+msgid "Nom de famille"
+msgstr "Last Name"
+
+#: .\app\forms.py:68 .\app\templates\app\author\author_details.html:15
+msgid "Date de naissance"
+msgstr "Date of Birth"
+
+#: .\app\forms.py:69 .\app\templates\app\author\author_details.html:16
+msgid "Nationalité"
+msgstr "Nationality"
+
+#: .\app\forms.py:84
+msgid "L'auteur existe déjà"
+msgstr "This author already exists"
+
+#: .\app\forms.py:116
+msgid "Code du livre"
+msgstr "Book Code"
+
+#: .\app\forms.py:117
+msgid "Titre"
+msgstr "Title"
+
+#: .\app\forms.py:118 .\app\templates\app\book\book_details.html:57
+msgid "Prix"
+msgstr "Price"
+
+#: .\app\forms.py:119 .\app\templates\app\book\book_details.html:64
+msgid "Résumé"
+msgstr "Summary"
+
+#: .\app\forms.py:120
+msgid "Date de publication"
+msgstr "Publication Date"
+
+#: .\app\forms.py:121 .\app\templates\app\book\book_details.html:51
+msgid "Édition"
+msgstr "Edition"
+
+#: .\app\forms.py:122
+msgid "Catégorie"
+msgstr "Category"
+
+#: .\app\forms.py:123
+msgid "Auteur"
+msgstr "Author"
+
+#: .\app\forms.py:124
+msgid "Image"
+msgstr "Image"
+
+#: .\app\forms.py:136
+msgid "Le code du livre existe déjà"
+msgstr "This book code already exists"
+
 #: .\app\templates\about.html:5
 msgid "À propos - Bibliothèque Boualem"
-msgstr ""
+msgstr "About - Boualem Library"
 
-#: .\app\templates\about.html:13
+#: .\app\templates\about.html:12
 msgid "À propos de Bibliothèque Boualem"
-msgstr "About you"
+msgstr "About Boualem Library"
 
-#: .\app\templates\about.html:15
+#: .\app\templates\about.html:14
 msgid ""
 "Bibliothèque Boualem est une plateforme dédiée aux passionnés de lecture. "
 "Nous proposons un espace simple et agréable pour découvrir et explorer des "
 "livres classiques et contemporains."
 msgstr ""
+"Boualem Library is a platform dedicated to reading enthusiasts. We offer a "
+"simple and pleasant space to discover and explore classic and contemporary "
+"books."
 
-#: .\app\templates\about.html:18
+#: .\app\templates\about.html:17
 msgid ""
 "Notre objectif est de créer une expérience conviviale où chaque lecteur peut "
 "trouver son livre préféré et enrichir sa culture littéraire."
 msgstr ""
+"Our goal is to create a friendly experience where every reader can find "
+"their favorite book and enrich their literary culture."
 
-#: .\app\templates\about.html:27
+#: .\app\templates\about.html:25
 msgid "Collections riches"
-msgstr ""
+msgstr "Rich Collections"
 
-#: .\app\templates\about.html:28
+#: .\app\templates\about.html:26
 msgid "Des milliers de titres, du classique aux nouveautés."
-msgstr ""
+msgstr "Thousands of titles, from classics to new releases."
 
-#: .\app\templates\about.html:32
+#: .\app\templates\about.html:30
 msgid "Communauté"
-msgstr ""
+msgstr "Community"
 
-#: .\app\templates\about.html:33
+#: .\app\templates\about.html:31
 msgid "Rejoignez des lecteurs passionnés et échangez vos avis."
-msgstr ""
+msgstr "Join passionate readers and share your opinions."
 
-#: .\app\templates\about.html:37
+#: .\app\templates\about.html:35
 msgid "Découverte"
-msgstr ""
+msgstr "Discovery"
 
-#: .\app\templates\about.html:38
+#: .\app\templates\about.html:36
 msgid "Explorez de nouveaux horizons littéraires facilement."
-msgstr ""
+msgstr "Easily explore new literary horizons."
 
-#: .\app\templates\about.html:42
+#: .\app\templates\about.html:40
 msgid "Bibliothèque"
+msgstr "Library"
+
+#: .\app\templates\app\author\author_confirm_delete.html:3
+#, fuzzy
+#| msgid "Ajouter un auteur"
+msgid "Supprimer un auteur"
+msgstr "Add Author"
+
+#: .\app\templates\app\author\author_confirm_delete.html:11
+#: .\app\templates\app\book\book_confirm_delete.html:11
+#: .\app\templates\app\category\category_confirm_delete.html:11
+msgid "Confirmation de suppression"
+msgstr "Delete Confirmation"
+
+#: .\app\templates\app\author\author_confirm_delete.html:14
+msgid "Êtes-vous sûr de vouloir supprimer cet auteur ?"
+msgstr "Are you sure you want to delete this author?"
+
+#: .\app\templates\app\author\author_confirm_delete.html:20
+#: .\app\templates\app\book\book_confirm_delete.html:20
+#: .\app\templates\app\category\category_confirm_delete.html:20
+msgid "Confirmer la suppression"
+msgstr "Confirm Deletion"
+
+#: .\app\templates\app\author\author_confirm_delete.html:24
+#: .\app\templates\app\book\book_confirm_delete.html:24
+#: .\app\templates\app\category\category_confirm_delete.html:24
+#: .\member_app\templates\member_app\login.html:18
+#: .\member_app\templates\member_app\password_edit.html:18
+#: .\member_app\templates\member_app\user_edit.html:20
+msgid "Annuler"
+msgstr "Cancel"
+
+#: .\app\templates\app\author\author_details.html:3
+#: .\app\templates\app\author\author_details.html:9
+msgid "Détails de l'auteur"
+msgstr "Author Details"
+
+#: .\app\templates\app\author\author_details.html:14
+#: .\app\templates\app\category\cat_details.html:13
+msgid "Nom"
+msgstr "Name"
+
+#: .\app\templates\app\author\author_details.html:21
+#, fuzzy
+#| msgid "Liste des auteurs"
+msgid "Retour à la liste des auteurs"
+msgstr "Authors List"
+
+#: .\app\templates\app\author\author_form.html:3
+#: .\app\templates\app\category\category_form.html:3
+msgid "Démo Django"
+msgstr "Django Demo"
+
+#: .\app\templates\app\author\author_form.html:9
+msgid "un auteur"
+msgstr "an author"
+
+#: .\app\templates\app\author\author_form.html:17
+#: .\app\templates\app\book\book_form.html:47
+#: .\app\templates\app\category\category_form.html:17
+msgid "Retour"
+msgstr "Back"
+
+#: .\app\templates\app\author\author_list.html:3
+#: .\app\templates\app\author\author_list.html:9
+msgid "Liste des auteurs"
+msgstr "Authors List"
+
+#: .\app\templates\app\author\author_list.html:15
+msgid "Ajouter un auteur"
+msgstr "Add Author"
+
+#: .\app\templates\app\author\author_list.html:28
+#: .\app\templates\app\book\book_list.html:57
+#: .\app\templates\app\category\cat_list.html:27
+msgid "Voir"
+msgstr "View"
+
+#: .\app\templates\app\author\author_list.html:33
+#: .\app\templates\app\book\book_details.html:75
+#: .\app\templates\app\book\book_list.html:61
+#: .\app\templates\app\category\cat_list.html:32 .\app\views\author_views.py:66
+#: .\app\views\author_views.py:84 .\app\views\book_views.py:89
+#: .\app\views\book_views.py:113 .\app\views\category_views.py:68
+#: .\app\views\category_views.py:86
+msgid "Modifier"
+msgstr "Edit"
+
+#: .\app\templates\app\author\author_list.html:46
+msgid "Aucun auteur disponible."
+msgstr "No author available."
+
+#: .\app\templates\app\book\book_confirm_delete.html:3
+msgid "Supprimer un livre"
+msgstr "Delete a book"
+
+#: .\app\templates\app\book\book_confirm_delete.html:14
+msgid "Êtes-vous sûr de vouloir supprimer ce livre ?"
+msgstr "Are you sure you want to delete this book?"
+
+#: .\app\templates\app\book\book_details.html:39
+msgid "Code"
+msgstr "Code"
+
+#: .\app\templates\app\book\book_details.html:45
+msgid "Publication"
+msgstr "Publication"
+
+#: .\app\templates\app\book\book_details.html:71
+msgid "Retour à la liste"
+msgstr "Back to list"
+
+#: .\app\templates\app\book\book_form.html:3
+#: .\app\templates\app\book\book_form.html:14
+msgid "un livre"
+msgstr "a book"
+
+#: .\app\templates\app\book\book_form.html:28
+msgid "Aperçu de l'image"
+msgstr "Image Preview"
+
+#: .\app\templates\app\book\book_form.html:32
+msgid "Aperçu"
+msgstr "Preview"
+
+#: .\app\templates\app\book\book_form.html:33
+msgid "Image actuelle"
+msgstr "Current Image"
+
+#: .\app\templates\app\book\book_form.html:37
+msgid "Aucune image"
+msgstr "No image"
+
+#: .\app\templates\app\book\book_list.html:3
+#: .\app\templates\app\book\book_list.html:9
+msgid "Liste des livres"
+msgstr "Books List"
+
+#: .\app\templates\app\book\book_list.html:19
+msgid "Rechercher par titre, auteur ou catégorie..."
+msgstr "Search by title, author or category..."
+
+#: .\app\templates\app\book\book_list.html:35
+msgid "Ajouter un livre"
+msgstr "Add a book"
+
+#: .\app\templates\app\book\book_list.html:44
+#, python-format
+msgid ""
+"Résultats pour: <strong>\"%(search_query)s\"</strong>\n"
+"        (%(page_books.paginator.count)s "
+"livre%(page_books.paginator.count|pluralize)s "
+"trouvé%(page_books.paginator.count|pluralize)s)"
 msgstr ""
+"Results for: <strong>\"%(search_query)s\"</strong>\n"
+"        (%(page_books.paginator.count)s "
+"book%(page_books.paginator.count|pluralize)s found)"
+
+#: .\app\templates\app\book\book_list.html:53
+msgid " par "
+msgstr " by "
+
+#: .\app\templates\app\book\book_list.html:72
+msgid "Aucun livre disponible."
+msgstr "No book available."
+
+#: .\app\templates\app\category\cat_details.html:3
+#: .\app\templates\app\category\cat_details.html:9
+msgid "Détails de la catégorie"
+msgstr "Category Details"
+
+#: .\app\templates\app\category\cat_details.html:18
+msgid "Retour à la liste des catégories"
+msgstr "Back to categories list"
+
+#: .\app\templates\app\category\cat_list.html:3
+#: .\app\templates\app\category\cat_list.html:9
+msgid "Liste des catégories"
+msgstr "Categories List"
+
+#: .\app\templates\app\category\cat_list.html:14
+msgid "Ajouter une catégorie"
+msgstr "Add a category"
+
+#: .\app\templates\app\category\cat_list.html:43
+msgid "Aucune catégorie disponible."
+msgstr "No category available."
+
+#: .\app\templates\app\category\category_confirm_delete.html:3
+msgid "Supprimer une catégorie"
+msgstr "Delete a category"
+
+#: .\app\templates\app\category\category_confirm_delete.html:14
+msgid "Êtes-vous sûr de vouloir supprimer cette catégorie ?"
+msgstr "Are you sure you want to delete this category?"
+
+#: .\app\templates\app\category\category_form.html:9
+msgid "une catégorie"
+msgstr "a category"
+
+#: .\app\templates\app\includes\pagination_section.html:8
+msgid "résultat"
+msgstr "result"
+
+#: .\app\templates\app\includes\pagination_section.html:8
+msgid "trouvé"
+msgstr "found"
+
+#: .\app\templates\app\includes\pagination_section.html:12
+msgid "Page"
+msgstr "Page"
+
+#: .\app\templates\app\includes\pagination_section.html:12
+#: .\app\templates\app\includes\pagination_section.html:103
+msgid "sur"
+msgstr "of"
+
+#: .\app\templates\app\includes\pagination_section.html:18
+msgid "Navigation des pages"
+msgstr "Page Navigation"
+
+#: .\app\templates\app\includes\pagination_section.html:24
+msgid "Première page"
+msgstr "First Page"
+
+#: .\app\templates\app\includes\pagination_section.html:35
+msgid "Page précédente"
+msgstr "Previous Page"
+
+#: .\app\templates\app\includes\pagination_section.html:36
+#: .\app\templates\app\includes\pagination_section.html:42
+msgid "Précédent"
+msgstr "Previous"
+
+#: .\app\templates\app\includes\pagination_section.html:72
+msgid "Page suivante"
+msgstr "Next Page"
+
+#: .\app\templates\app\includes\pagination_section.html:73
+#: .\app\templates\app\includes\pagination_section.html:79
+msgid "Suivant"
+msgstr "Next"
+
+#: .\app\templates\app\includes\pagination_section.html:88
+msgid "Dernière page"
+msgstr "Last Page"
+
+#: .\app\templates\app\includes\pagination_section.html:101
+msgid "Affichage"
+msgstr "Showing"
+
+#: .\app\templates\index.html:4 .\templates\base.html:40
+msgid "Accueil"
+msgstr "Home"
+
+#: .\app\templates\index.html:23
+msgid "Bibliothèque Numérique"
+msgstr "Digital Library"
+
+#: .\app\templates\index.html:27
+msgid "Bienvenue sur"
+msgstr "Welcome to"
+
+#: .\app\templates\index.html:29
+msgid "Découvrez l'avenir de la lecture numérique"
+msgstr "Discover the future of digital reading"
+
+#: .\app\templates\index.html:31
+#, python-format
+msgid ""
+"\n"
+"              %(books)s livre • %(authors_count)s auteur • "
+"%(categories_count)s catégorie\n"
+"            "
+msgid_plural ""
+"\n"
+"              %(books)s livres • %(authors_count)s auteurs • "
+"%(categories_count)s catégories\n"
+"            "
+msgstr[0] ""
+"\n"
+"              %(books)s book • %(authors_count)s author • "
+"%(categories_count)s category\n"
+"            "
+msgstr[1] ""
+"\n"
+"              %(books)s books • %(authors_count)s authors • "
+"%(categories_count)s categories\n"
+"            "
+
+#: .\app\templates\index.html:45
+msgid "Rechercher un livre"
+msgstr "Search a book"
+
+#: .\app\templates\index.html:51
+msgid "Titre, auteur, catégorie..."
+msgstr "Title, author, category..."
+
+#: .\app\templates\index.html:57
+msgid "Rechercher"
+msgstr "Search"
+
+#: .\app\templates\index.html:67
+msgid "Explorer"
+msgstr "Explore"
+
+#: .\app\templates\index.html:70
+msgid "Favoris"
+msgstr "Favorites"
+
+#: .\app\templates\index.html:85
+msgid "Livres en Vedette"
+msgstr "Featured Books"
+
+#: .\app\templates\index.html:87
+msgid "Découvrez nos coups de cœur sélectionnés spécialement pour vous"
+msgstr "Discover our favorites selected especially for you"
+
+#: .\app\templates\index.html:128
+msgid "Aucun livre en vedette disponible pour le moment."
+msgstr "No featured books available at the moment."
+
+#: .\app\templates\index.html:142
+msgid "L'avenir de la lecture est ici"
+msgstr "The future of reading is here"
+
+#: .\app\templates\index.html:143
+msgid ""
+"Découvrez une expérience de lecture révolutionnaire avec notre plateforme "
+"moderne et intuitive."
+msgstr ""
+"Discover a revolutionary reading experience with our modern and intuitive "
+"platform."
+
+#: .\app\templates\index.html:151
+msgid "Accès instantané"
+msgstr "Instant Access"
+
+#: .\app\templates\index.html:152
+msgid "Téléchargez et lisez vos livres en quelques secondes"
+msgstr "Download and read your books in seconds"
+
+#: .\app\templates\index.html:161
+msgid "Synchronisation"
+msgstr "Synchronization"
+
+#: .\app\templates\index.html:162
+msgid "Retrouvez votre progression sur tous vos appareils"
+msgstr "Find your progress on all your devices"
+
+#: .\app\templates\index.html:171
+msgid "Recommandations"
+msgstr "Recommendations"
+
+#: .\app\templates\index.html:172
+msgid "Des suggestions personnalisées selon vos goûts"
+msgstr "Personalized suggestions based on your tastes"
+
+#: .\app\templates\index.html:178
+msgid "Commencer maintenant"
+msgstr "Get Started Now"
+
+#: .\app\templates\index.html:197
+msgid "Notre communauté grandissante"
+msgstr "Our Growing Community"
+
+#: .\app\templates\index.html:205
+msgid "Livres disponibles"
+msgstr "Available Books"
+
+#: .\app\templates\index.html:214
+msgid "Auteurs référencés"
+msgstr "Referenced Authors"
+
+#: .\app\templates\index.html:223 .\templates\base.html:43
+msgid "Catégories"
+msgstr "Categories"
+
+#: .\app\views\author_views.py:37 .\app\views\author_views.py:54
+#: .\app\views\book_views.py:53 .\app\views\book_views.py:76
+#: .\app\views\category_views.py:37 .\app\views\category_views.py:55
+msgid "Ajouter"
+msgstr "Add"
+
+#: .\member_app\forms.py:14 .\member_app\forms.py:42 .\member_app\forms.py:65
+msgid "Nom d'utilisateur"
+msgstr "Username"
+
+#: .\member_app\forms.py:16 .\member_app\forms.py:73
+#: .\member_app\templates\member_app\password_edit.html:3
+msgid "Mot de passe"
+msgstr "Password"
+
+#: .\member_app\forms.py:27
+msgid "Ancien mot de passe"
+msgstr "Old Password"
+
+#: .\member_app\forms.py:29
+msgid "Nouveau mot de passe"
+msgstr "New Password"
+
+#: .\member_app\forms.py:31
+msgid "Confirmer le nouveau mot de passe"
+msgstr "Confirm New Password"
+
+#: .\member_app\forms.py:48 .\member_app\forms.py:71
+msgid "Email"
+msgstr "Email"
+
+#: .\member_app\forms.py:75
+msgid "Confirmer le mot de passe"
+msgstr "Confirm Password"
+
+#: .\member_app\templates\member_app\login.html:3
+msgid "Identification"
+msgstr "Login"
+
+#: .\member_app\templates\member_app\login.html:10
+msgid "Veuillez vous identifier"
+msgstr "Please log in"
+
+#: .\member_app\templates\member_app\login.html:19
+msgid "Se connecter"
+msgstr "Log in"
+
+#: .\member_app\templates\member_app\password_edit.html:10
+#: .\member_app\templates\member_app\user_edit.html:18
+#, fuzzy
+#| msgid "Confirmer le mot de passe"
+msgid "Modifier votre mot de passe"
+msgstr "Confirm Password"
+
+#: .\member_app\templates\member_app\password_edit.html:19
+#: .\member_app\templates\member_app\user_edit.html:21
+msgid "Confirmer"
+msgstr "Confirm"
+
+#: .\member_app\templates\member_app\user_edit.html:3
+msgid "Votre compte"
+msgstr "Your Account"
+
+#: .\member_app\templates\member_app\user_edit.html:10
+#, fuzzy
+#| msgid "Confirmation de suppression"
+msgid "Vos informations de compte"
+msgstr "Your account information"
+
+#: .\project\settings.py:115
+msgid "Français"
+msgstr "French"
+
+#: .\project\settings.py:116
+msgid "English"
+msgstr "English"
+
+#: .\templates\base.html:11 .\templates\base.html:25 .\templates\base.html:103
+msgid "Bibliothèque Boualem"
+msgstr "Boualem Library"
+
+#: .\templates\base.html:26
+msgid "Canada"
+msgstr "Canada"
+
+#: .\templates\base.html:41
+msgid "À propos"
+msgstr "About"
+
+#: .\templates\base.html:42
+msgid "Livres"
+msgstr "Books"
+
+#: .\templates\base.html:44
+msgid "Auteurs"
+msgstr "Authors"
+
+#: .\templates\base.html:73
+msgid "PROFIL"
+msgstr "PROFILE"
+
+#: .\templates\base.html:74
+msgid "SE DÉCONNECTER"
+msgstr "LOGOUT"
+
+#: .\templates\base.html:76
+msgid "CRÉER UN COMPTE"
+msgstr "CREATE ACCOUNT"
+
+#: .\templates\base.html:77
+msgid "SE CONNECTER"
+msgstr "LOGIN"

@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
-{% block title %}Détails de la catégorie{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Détails de la catégorie" %}{% endblock %}
 
 {% block content %}
 {% load static %}
 
 <div class="container my-5" style="max-width: 600px;">
-    <h2 class="mb-4 text-primary"><i class="fas fa-folder me-2"></i>Détails de la catégorie</h2>
+    <h2 class="mb-4 text-primary"><i class="fas fa-folder me-2"></i>{% trans "Détails de la catégorie" %}</h2>
 
     <div class="card shadow-sm">
         <div class="card-body">
-            <p class="mb-2"><strong>Nom:</strong> {{ category.name }}</p>
+            <p class="mb-2"><strong>{% trans "Nom" %}:</strong> {{ category.name }}</p>
         </div>
     </div>
 
     <a href="{% url 'cat_list' %}" class="btn btn-outline-secondary mt-4">
-        <i class="fas fa-arrow-left me-2"></i>Retour à la liste des catégories
+        <i class="fas fa-arrow-left me-2"></i>{% trans "Retour à la liste des catégories" %}
     </a>
 </div>
 
