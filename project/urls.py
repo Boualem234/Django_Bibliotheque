@@ -24,6 +24,7 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
 ]
 
+# Ajout des URL avec le préfixe de langue
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('member/', include('member_app.urls')),

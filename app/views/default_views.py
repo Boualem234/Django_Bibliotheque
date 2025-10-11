@@ -11,7 +11,8 @@ class IndexView(View):
         if search_query:
             # Redirection vers la page de liste avec la recherche
             return redirect(f"/books/?search={search_query}")
-        
+
+        # Sélectionner quelques livres à mettre en avant ici j'en choisis 3
         featured_books = Book.objects.filter(image__isnull=False).exclude(image='')[:3]
         context = {
             'featured_books': featured_books,

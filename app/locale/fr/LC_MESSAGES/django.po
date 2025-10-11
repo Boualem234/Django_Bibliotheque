@@ -136,11 +136,6 @@ msgstr ""
 msgid "Retour à la liste des auteurs"
 msgstr "Liste des auteurs"
 
-#: .\app\templates\app\author\author_form.html:3
-#: .\app\templates\app\category\category_form.html:3
-msgid "Démo Django"
-msgstr ""
-
 #: .\app\templates\app\author\author_form.html:9
 #, fuzzy
 #| msgid "Ajouter un auteur"
@@ -260,12 +255,12 @@ msgstr "Ajouter un livre"
 #, python-format
 msgid ""
 "Résultats pour: <strong>\"%(search_query)s\"</strong>\n"
-"        (%(page_books.paginator.count)s "
+"(%(page_books.paginator.count)s "
 "livre%(page_books.paginator.count|pluralize)s "
 "trouvé%(page_books.paginator.count|pluralize)s)"
 msgstr ""
 "Résultats pour: <strong>\"%(search_query)s\"</strong>\n"
-"        (%(page_books.paginator.count)s "
+"(%(page_books.paginator.count)s "
 "livre%(page_books.paginator.count|pluralize)s "
 "trouvé%(page_books.paginator.count|pluralize)s)"
 
@@ -386,24 +381,20 @@ msgstr "Découvrez l'avenir de la lecture numérique"
 #, python-format
 msgid ""
 "\n"
-"              %(books)s livre • %(authors_count)s auteur • "
+"%(books)s livre • %(authors_count)s auteur • "
 "%(categories_count)s catégorie\n"
-"            "
 msgid_plural ""
 "\n"
-"              %(books)s livres • %(authors_count)s auteurs • "
+"%(books)s livres • %(authors_count)s auteurs • "
 "%(categories_count)s catégories\n"
-"            "
 msgstr[0] ""
 "\n"
-"              %(books)s livre • %(authors_count)s auteur • "
+"%(books)s livre • %(authors_count)s auteur • "
 "%(categories_count)s catégorie\n"
-"            "
 msgstr[1] ""
 "\n"
-"              %(books)s livres • %(authors_count)s auteurs • "
+"%(books)s livres • %(authors_count)s auteurs • "
 "%(categories_count)s catégories\n"
-"            "
 
 #: .\app\templates\index.html:45
 msgid "Rechercher un livre"

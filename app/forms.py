@@ -90,8 +90,8 @@ class BookForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # S'assurer que le format de date est correct pour les navigateurs
-        self.fields['date'].input_formats = ['%Y-%m-%d']
+        # Checker le format de date si ilest correct pour les navigateurs
+        self.fields['date'].input_formats = ['%Y-%m-%d']  # j'aurais pu mettre le format de la date dans settings.py
     
     class Meta:
         model = Book
