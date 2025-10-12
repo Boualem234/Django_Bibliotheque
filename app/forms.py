@@ -27,7 +27,7 @@ class CategoryForm(forms.ModelForm):
 
   class Meta:
     model = Category
-    fields = "__all__"
+    fields = ['name'] 
     widgets = {
       'name': forms.TextInput(attrs={'class': 'form-control'}),
     }
@@ -51,14 +51,19 @@ class CategoryForm(forms.ModelForm):
 class AuthorForm(forms.ModelForm):
   template_name = "app/snippets/form_snippet.html"
 
+  def __init__(self, *args, **kwargs):
+    super().__init__(*args, **kwargs)
+    # Format de date pour les navigateurs
+    self.fields['birth_date'].input_formats = ['%Y-%m-%d']
+
   class Meta:
     model = Author
-    fields = "__all__"
+    fields = ['first_name', 'last_name', 'birth_date', 'nationality']  # Spécifier explicitement pour éviter les champs de traduction
 
     widgets = {
       'first_name': forms.TextInput(attrs={'class': 'form-control'}),
       'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-      'birth_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+      'birth_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}, format='%Y-%m-%d'),
       'nationality': forms.TextInput(attrs={'class': 'form-control'}),
     }
     
